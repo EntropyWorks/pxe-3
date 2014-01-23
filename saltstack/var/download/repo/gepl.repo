@@ -1,0 +1,11 @@
+[gepl63-x86_64]
+name=Geekple Extra Packages for Linux (CentOS 6.3)
+baseurl=http://public.geekple.com/yum-repo/6.3/x86_64
+enabled=1
+gpgcheck=0
+
+[gepl63-noarch]
+name=Geekple Extra Packages for Linux (CentOS 6.3)
+baseurl=http://public.geekple.com/yum-repo/6.3/noarch
+gpgcheck=0
+enabled=1

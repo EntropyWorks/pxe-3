@@ -1,0 +1,5 @@
+# SAMPLE: Rename this file to /etc/sysconfig/spawn-fcgi and edit to fit
+# (Without this, nginx + munin-cgi will not work properly via init script)
+SOCKET=/var/run/mod_fcgid/fcgi-graph.sock
+OPTIONS="-U apache -u apache -g apache -s  -S -M 0600 -C 32 -F 1 -P /var/run/spawn-fcgi.pid -- /var/www/cgi-bin/munin-cgi-graph"
+

@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<installation>
+<primary-disk>sda</primary-disk>
+<hostname>xs-6.0.2</hostname>
+<keymap>us</keymap>
+<root-password>password</root-password>
+<source type="url">http://10.24.4.4/os/xs-6.0.2</source>
+<name-server>8.8.8.8</name-server>
+<time-config-method>ntp</time-config-method>
+<ntp-server>ntp.fudan.edu.cn</ntp-server>
+<admin-interface name="eth0" proto="dhcp" />
+<timezone>Asia/Shanghai</timezone>
+</installation>

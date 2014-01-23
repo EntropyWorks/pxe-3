@@ -1,0 +1,14 @@
+$def with (release,arch,ks)
+$ kernel = "images/pxeboot/vmlinuz"
+$ initrd = "images/pxeboot/initrd.img"
+$ proto = "http://"
+
+<p>
+LABEL CentOS $release $arch $ks</br>
+&nbsp&nbspKERNEL CentOS/$release/$arch/$kernel</br>
+&nbsp&nbspINITRD CentOS/$release/$arch/$initrd</br>
+&nbsp&nbspAPPEND ramdisk_size=100000 ip=dhcp method=$proto$config.server/$config.ks_path/centos/$release/$arch/$ks</br>
+TEXT HELP</br>
+&nbsp&nbsp&nbsp&nbspInstall CentOS $release $arch-$ks</br>
+ENDTEXT</br>
+</p>

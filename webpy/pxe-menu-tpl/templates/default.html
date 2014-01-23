@@ -1,0 +1,14 @@
+$def with (os,release,arch,ks)
+$ kernel = "images/pxeboot/vmlinuz"
+$ initrd = "images/pxeboot/initrd.img"
+$ proto = "http://"
+
+<p>
+<b>LABEL</b> $os $release $arch $ks</br>
+&nbsp&nbsp<b>KERNEL</b> $os/$release/$arch/$kernel</br>
+&nbsp&nbsp<b>KERNEL</b> $os/$release/$arch/$initrd</br>
+&nbsp&nbsp<b>APPEND</b> ramdisk_size=100000 ip=dhcp method=$proto$config.server/$config.ks_path/$os/$release/$arch/$ks</br>
+<b>TEXT HELP</b></br>
+&nbsp&nbsp&nbsp&nbspInstall $os $release $arch-$ks</br>
+<b>ENDTEXT</b></br>
+</p>

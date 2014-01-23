@@ -1,0 +1,12 @@
+# ------====> Clonezilla <====------
+MENU BEGIN CLZILLA
+# ------====> Set Specific Page Settings <====------
+MENU BACKGROUND er/plugins/clonezilla/clonezilla.png
+MENU TITLE Clonezilla 2.0.1-15
+
+MENU INCLUDE er/plugins/clonezilla/i386/clonezillamain.menu
+MENU INCLUDE er/plugins/clonezilla/x86_64/clonezillamain.menu
+
+# ------====> Back <====------
+INCLUDE er/menu/shared/menu-back.module
+MENU END

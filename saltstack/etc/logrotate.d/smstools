@@ -1,0 +1,14 @@
+#
+# Rotate smstools log files.
+#
+/var/log/smsd/smsd_trouble.log {
+	missingok
+	create 640 smstools smstools
+}
+/var/log/smsd/smsd.log {
+	missingok
+	create 640 smstools smstools
+	postrotate
+		/sbin/service smsd condrestart 2> /dev/null > /dev/null || true
+	endscript
+}

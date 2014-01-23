@@ -1,0 +1,8 @@
+LABEL UBUNTULIVE64
+MENU LABEL ^Ubuntu Live - x64
+KERNEL er/plugins/ubuntulive/x86_64/vmlinuz
+INITRD er/plugins/ubuntulive/x86_64/initrd.lz
+APPEND vga=normal boot=casper netboot=nfs nfsroot=10.0.0.1:/tftpboot/er/shares/ubuntulive/x86_64/ ramdisk_size=200000 nolock
+TEXT HELP
+                 Ubuntu Live x64.
+ENDTEXT

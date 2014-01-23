@@ -1,0 +1,9 @@
+LABEL OPENDIAGNOSTICS
+MENU LABEL ^Open Diagnostics (volatileminds.net)
+KERNEL er/plugins/ods/vmlinuz
+INITRD er/plugins/ods/initrd.gz
+APPEND boot=casper netboot=nfs nfsroot=10.0.0.1:/tftpboot/er/shares/ods/ ramdisk_size=100000 nolock vga=788 splash
+TEXT HELP
+                 Open Diagnostics (volatileminds.net)
+				 run 'startx' for GUI at prompt
+ENDTEXT

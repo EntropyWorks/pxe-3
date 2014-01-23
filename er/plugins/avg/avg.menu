@@ -1,0 +1,8 @@
+LABEL AVGRCD
+MENU LABEL ^AVG Rescue CD 12.0
+KERNEL er/plugins/avg/vmlinuz
+INITRD er/plugins/avg/initrd.lzm
+APPEND max_loop=255 vga=791 init=linuxrc reboot=bios ramdisk_size=100000
+TEXT HELP
+                 AVG AntiVirus - Recovery CD.
+ENDTEXT

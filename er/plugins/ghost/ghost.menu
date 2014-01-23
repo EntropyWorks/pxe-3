@@ -1,0 +1,6 @@
+LABEL GHOSTPE
+MENU LABEL ^Symantec Norton Ghost 15
+KERNEL er/8/pxeboot.0
+TEXT HELP
+                 Symantec Norton Ghost WinPE.
+ENDTEXT

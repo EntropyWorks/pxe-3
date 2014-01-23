@@ -1,0 +1,27 @@
+LABEL PARTEDMAGICLVX64-iso
+MENU LABEL ^Parted Magic x64-iso
+KERNEL pxelinux.cfg/roms/memdisk
+INITRD http://192.168.31.245/isos/tools/pmagic_2013_06_15.iso
+APPEND iso
+TEXT HELP
+                 Parted Magic - Partitioning Tool.
+ENDTEXT
+
+LABEL PARTEDMAGICLVX64
+MENU LABEL ^Parted Magic x64
+KERNEL er/plugins/partedmagic/x86_64/bzimage
+INITRD er/plugins/partedmagic/x86_64/initrd.img
+APPEND edd=off noapic load_ramdisk=1 prompt_ramdisk=0 rw vga=788 loglevel=0 max_loop=256 keymap=us en_US
+TEXT HELP
+                 Parted Magic - Partitioning Tool.
+ENDTEXT
+
+LABEL PARTEDMAGICLMX64
+MENU LABEL ^Parted Magic x64 LiveMedia
+KERNEL er/plugins/partedmagic/x86_64/bzimage
+INITRD er/plugins/partedmagic/x86_64/initrd.img
+APPEND edd=off noapic load_ramdisk=1 prompt_ramdisk=0 rw loglevel=0 vga=788 livemedia noeject max_loop=256 keymap=us en_US
+TEXT HELP
+                 Parted Magic - Partitioning Tool
+                 Live-Media Edition.
+ENDTEXT

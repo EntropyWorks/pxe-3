@@ -1,0 +1,8 @@
+LABEL BTX64
+MENU LABEL ^BackTrack Live - x64
+KERNEL er/plugins/backtrack/x86_64/vmlinuz
+INITRD er/plugins/backtrack/x86_64/initrd.gz
+APPEND boot=casper netboot=nfs nfsroot=10.0.0.1:/tftpboot/er/shares/backtrack/x86_64 ramdisk_size=200000 nolock vga=791 aufs
+TEXT HELP
+                 BackTrack x64.
+ENDTEXT

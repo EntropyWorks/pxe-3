@@ -1,0 +1,13 @@
+MENU BEGIN FOGMENU
+MENU LABEL ^FOG Computer Cloning Solution 0.32
+# ------====> Include Menu Settings <====------
+MENU INCLUDE er/menuinc/header.module
+
+# ------====> Set Specific Page Settings <====------
+MENU BACKGROUND er/plugins/fog/fog.png
+
+MENU INCLUDE er/plugins/fog/fogmain.menu
+
+# ------====> Back <====------
+MENU INCLUDE er/menu/shared/menu-back.module
+MENU END

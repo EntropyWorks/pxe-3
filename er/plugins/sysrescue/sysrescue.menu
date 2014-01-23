@@ -1,0 +1,10 @@
+MENU BEGIN SRESCUECD
+MENU TITLE System Rescue CD 3.7.1 (sysresccd)
+MENU LABEL ^System Rescue CD 3.7.1 (sysresccd)
+MENU BACKGROUND er/plugins/sysrescue/sysrescue.png
+
+MENU INCLUDE er/plugins/sysrescue/sysrescuemain.menu
+
+# ------====> Back <====------
+MENU INCLUDE er/menu/shared/menu-back.module
+MENU END

@@ -1,0 +1,6 @@
+/mnt/isos/	*(ro,sync,no_root_squash)
+/mnt/sdb2/windows/x86_64	*(ro,sync,no_root_squash)
+/mnt/sdb2/windows/i386		*(ro,sync,no_root_squash)
+/var/www/html/exports/	*(ro,sync,no_root_squash)
+##########################################################
+/mnt/sdb2/backup/sql		192.168.11.7(rw,sync,no_root_squash)

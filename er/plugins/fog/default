@@ -1,0 +1,73 @@
+DEFAULT vesamenu.c32
+MENU TITLE FOG Computer Cloning Solution
+MENU BACKGROUND fog/bg.png
+MENU MASTER PASSWD $1$0123456789
+\n
+menu color title	1;36;44    #ffffffff #00000000 std
+\n
+LABEL fog.local
+	localboot 0
+	MENU DEFAULT
+	MENU LABEL Boot from hard disk
+	TEXT HELP
+	Boot from the local hard drive.  
+	If you are unsure, select this option.
+	ENDTEXT
+\n
+LABEL fog.memtest
+	kernel fog/memtest/memtest
+	MENU LABEL Run Memtest86+
+	TEXT HELP
+	Run Memtest86+ on the client computer.
+	ENDTEXT
+\n
+LABEL fog.reg
+	kernel fog/kernel/bzImage
+	append initrd=fog/images/init.gz root=/dev/ram0 rw ramdisk_size=127000 ip=dhcp dns= mode=autoreg web=10.0.0.1/fog/ loglevel=4
+	MENU LABEL Quick Host Registration and Inventory
+	TEXT HELP
+	Automatically register the client computer,
+	and perform a hardware inventory.
+	ENDTEXT
+\n
+LABEL fog.reginput
+	kernel fog/kernel/bzImage
+	append initrd=fog/images/init.gz root=/dev/ram0 rw ramdisk_size=127000 ip=dhcp dns= mode=manreg web=10.0.0.1/fog/ loglevel=4
+	MENU LABEL Perform Full Host Registration and Inventory
+	TEXT HELP
+	Perform a full host registration on the client
+	computer, perform a hardware inventory, and 
+	optionally image the host.
+	ENDTEXT
+\n
+LABEL fog.quickimage
+	MENU PASSWD $1$0123456789
+	kernel fog/kernel/bzImage
+	append initrd=fog/images/init.gz  root=/dev/ram0 rw ramdisk_size=127000 ip=dhcp dns= mode=quickimage keymap= web=10.0.0.1/fog/ loglevel=4
+	MENU LABEL Quick Image
+	TEXT HELP
+	This mode will allow you to image this host quickly with
+	it's default assigned image.
+	ENDTEXT	
+	
+LABEL fog.sysinfo
+	kernel fog/kernel/bzImage
+	append initrd=fog/images/init.gz  root=/dev/ram0 rw ramdisk_size=127000 ip=dhcp dns= mode=sysinfo loglevel=4
+	MENU LABEL Client System Information
+	TEXT HELP
+	View basic client information such as MAC address 
+	and FOG compatibility.
+	ENDTEXT	
+\n
+LABEL fog.debug
+	MENU PASSWD $1$0123456789
+	kernel fog/kernel/bzImage
+	append initrd=fog/images/init.gz  root=/dev/ram0 rw ramdisk_size=127000 ip=dhcp dns= mode=onlydebug
+	MENU LABEL Debug Mode
+	TEXT HELP
+	Debug mode will load the boot image and load a prompt so
+	you can run any commands you wish.
+	ENDTEXT
+\n
+PROMPT 0
+TIMEOUT 30\n

@@ -1,0 +1,32 @@
+# Name: Atomic Rocket Turtle RPM Repository for CentOS / Red Hat Enterprise Linux 6 - 
+# URL: http://www.atomicrocketturtle.com/
+# Note: This isn't covered by ASL support. -Scott
+[atomic]
+name = CentOS / Red Hat Enterprise Linux $releasever - atomicrocketturtle.com
+mirrorlist = http://www.atomicorp.com/mirrorlist/atomic/centos-6-$basearch
+#mirrorlist = http://www.atomicorp.com/channels/atomic/centos/6/mirrors-atomic
+enabled = 0
+priority = 1
+protect = 0
+gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY.art.txt
+gpgcheck = 1
+
+# Almost Stable, release candidates for [atomic]
+[atomic-testing]
+name = CentOS / Red Hat Enterprise Linux $releasever - atomicrocketturtle.com - (Testing)
+mirrorlist = http://www.atomicorp.com/mirrorlist/atomic-testing/centos-6-$basearch
+enabled = 0
+priority = 1
+protect = 0
+gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY.art.txt
+gpgcheck = 1
+
+# Untested, Unstable, known buggy, and incomplete packages. 
+[atomic-bleeding]
+name = CentOS / Red Hat Enterprise Linux $releasever - atomicrocketturtle.com - (Bleeding)
+baseurl = http://www.atomicorp.com/channels/atomic-bleeding/centos/$releasever/$basearch/
+enabled = 0
+priority = 1
+protect = 0
+gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY.art.txt
+gpgcheck = 1

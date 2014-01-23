@@ -1,0 +1,6 @@
+[kbs-extras-testing]
+name=KBS Extras Testing
+baseurl=http://centos.karan.org/el$releasever/extras/testing/$basearch/RPMS/
+enabled=1
+gpgcheck=1
+gpgkey=http://centos.karan.org/RPM-GPG-KEY-karan.org.txt

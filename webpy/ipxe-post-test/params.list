@@ -1,0 +1,39 @@
+#smbios
+smbios_uuid ${smbios/uuid}
+smbios_manufacture ${smbios/manufacture}
+smbios_product ${smbios/product}
+smbios_serial ${smbios/serial}
+smbios_asset ${smbios/asset}
+#net0
+net0_mac ${net0/mac}
+net0_bustype ${net0/bustype}
+net0_busloc ${net0/busloc}
+net0_busid ${net0/busid}
+net0_chip ${net0/chip}
+net0_uuid ${net0/uuid}
+net0_dhcp_ip ${net0/ip}
+net0_dhcp_netmask ${net0/netmask}
+net0_dhcp_gateway ${net0/gateway}
+net0_dhcp_domain ${net0/domain}
+net0_dns ${net0/dns}
+net0_dhcp_next-server ${net0/next-server}
+net0_hostname ${net0/hostname}
+net0_username ${net0/username}
+net0_buildarch ${net0/buildarch}
+net0_platform ${net0/platform}
+net0_version ${net0/version}
+net0_dhcp-server ${net0/dhcp-server}
+#global
+global_mac ${mac}
+global_ip ${ip}
+global_netmask ${netmask}
+global_gateway ${gateway}
+global_hostname ${hostname}
+global_filename ${filename}
+global_uuid ${uuid}
+global_version ${version}
+global_product ${product}
+global_manufacture ${manufacture}
+global_asset ${asset}
+global_serial ${serial}
+global_chip ${chip}

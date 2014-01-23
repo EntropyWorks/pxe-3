@@ -1,0 +1,8 @@
+filelist.txt
+filesystem.packages
+filesystem.squashfs
+gpartedmain.menu
+gparted.menu
+gparted.png
+initrd.img
+vmlinuz

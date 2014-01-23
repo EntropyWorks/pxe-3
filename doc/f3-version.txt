@@ -1,0 +1,18 @@
+
+
+
+
+
+
+                F3 - ERPXE Release info
+                =======================
+
+                ERPXE release version 061.207
+
+                Last compilation created by:
+                06- RaveMaker -07
+
+                Current compilation date (D/M/Y):
+                06- 28/09/2013 -07
+
+                Based on SYSLINUX 6.02-pre16

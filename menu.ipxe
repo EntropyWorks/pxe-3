@@ -1,0 +1,49 @@
+#!gpxe
+#dhcp
+set 209:string pxelinux.cfg/default
+set 210:string http://10.24.4.84/pxe/
+########################################
+#params --name ipxe
+#smbios
+#param --params ipxe smbios_uuid ${smbios/uuid}
+#param --params ipxe smbios_manufacture ${smbios/manufacture}
+#param --params ipxe smbios_product ${smbios/product}
+#param --params ipxe smbios_serial ${smbios/serial}
+#param --params ipxe smbios_asset ${smbios/asset}
+#net0
+#param --params ipxe net0_mac ${net0/mac}
+#param --params ipxe net0_bustype ${net0/bustype}
+#param --params ipxe net0_busloc ${net0/busloc}
+#param --params ipxe net0_busid ${net0/busid}
+#param --params ipxe net0_chip ${net0/chip}
+#param --params ipxe net0_uuid ${net0/uuid}
+#param --params ipxe net0_dhcp_ip ${net0/ip}
+#param --params ipxe net0_dhcp_netmask ${net0/netmask}
+#param --params ipxe net0_dhcp_gateway ${net0/gateway}
+#param --params ipxe net0_dhcp_domain ${net0/domain}
+#param --params ipxe net0_dns ${net0/dns}
+#param --params ipxe net0_dhcp_next-server ${net0/next-server}
+#param --params ipxe net0_hostname ${net0/hostname}
+#param --params ipxe net0_username ${net0/username}
+#param --params ipxe net0_buildarch ${net0/buildarch}
+#param --params ipxe net0_platform ${net0/platform}
+#param --params ipxe net0_version ${net0/version}
+#param --params ipxe net0_dhcp-server ${net0/dhcp-server}
+#global
+#param --params ipxe global_mac ${mac}
+#param --params ipxe global_ip ${ip}
+#param --params ipxe global_netmask ${netmask}
+#param --params ipxe global_gateway ${gateway}
+#param --params ipxe global_hostname ${hostname}
+#param --params ipxe global_filename ${filename}
+#param --params ipxe global_uuid ${uuid}
+#param --params ipxe global_version ${version}
+#param --params ipxe global_product ${product}
+#param --params ipxe global_manufacture ${manufacture}
+#param --params ipxe global_asset ${asset}
+#param --params ipxe global_serial ${serial}
+#param --params ipxe global_chip ${chip}
+########################################
+
+chain ${210:string}pxelinux.0
+boot

@@ -1,0 +1,8 @@
+CREATE TABLE `ipxe` (
+  `id` int(10) NULL AUTO_INCREMENT,
+  `mac` varchar(30) DEFAULT NULL,
+  `ip` varchar(30) DEFAULT NULL,
+  `uuid` varchar(30) DEFAULT NULL,
+  `created` DATETIME DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;

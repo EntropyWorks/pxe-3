@@ -1,0 +1,8 @@
+LABEL STRESSLINUXX64
+MENU LABEL ^StressLinux 0.7.190 x86-64
+KERNEL er/plugins/stress/initrd-netboot-suse-11.4.x86_64-2.1.1.kernel.2.6.37.6-0.20-default
+INITRD er/plugins/stress/initrd-netboot-suse-11.4.x86_64-2.1.1.gz
+APPEND ramdisk_size=1200000 kiwiserver=10.0.0.1 kiwiservertype=tftp
+TEXT HELP
+                 Very small Linux PE - Stress Testing.
+ENDTEXT

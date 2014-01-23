@@ -1,0 +1,5 @@
+NICE=+2
+DIRECTORY=/var/lib/mldonkey
+LOGFILE="/dev/null"
+LOG_TO_SYSLOG=yes
+

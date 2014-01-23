@@ -1,0 +1,27 @@
+LABEL CLONEZILLALIVEX64
+MENU LABEL Clonezilla live (x86_64)
+KERNEL er/plugins/clonezilla/x86_64/vmlinuz
+INITRD er/plugins/clonezilla/x86_64/initrd.img 
+APPEND boot=live toram config noswap nolocales edd=on nomodeset noprompt ocs_live_run="ocs-live-general" ocs_live_extra_param="" keyboard-layouts="NONE" ocs_live_batch="yes" locales="en_US.UTF-8" vga=791 nosplash fetch=tftp://10.0.0.1/er/plugins/clonezilla/x86_64/filesystem.squashfs
+TEXT HELP
+	VGA mode 1024x768. OK for most of VGA cards.
+ENDTEXT
+ 
+LABEL CLONEZILLALIVEWITHOUTFRAMEBUFFERX64
+MENU LABEL Clonezilla live (Safe graphic settings) (x86_64)
+KERNEL er/plugins/clonezilla/x86_64/vmlinuz
+INITRD er/plugins/clonezilla/x86_64/initrd.img
+APPEND boot=live toram config noswap nolocales edd=on nomodeset noprompt ocs_live_run="ocs-live-general" ocs_live_extra_param="" keyboard-layouts="NONE" ocs_live_batch="yes" locales="en_US.UTF-8" vga=normal nosplash fetch=tftp://10.0.0.1/er/plugins/clonezilla/x86_64/filesystem.squashfs
+TEXT HELP
+	Disable console frame buffer support
+ENDTEXT
+
+LABEL CLONEZILLALIVEFAILSAFEMODEX64
+MENU LABEL Clonezilla live (Failsafe mode) (x86_64)
+KERNEL er/plugins/clonezilla/x86_64/vmlinuz
+INITRD er/plugins/clonezilla/x86_64/initrd.img
+APPEND boot=live toram config noswap nolocales edd=on nomodeset noprompt ocs_live_run="ocs-live-general" ocs_live_extra_param="" keyboard-layouts="NONE" ocs_live_batch="yes" locales="en_US.UTF-8" vga=normal nosplash acpi=off irqpoll noapic noapm nodma nomce nolapic nosmp+ fetch=tftp://10.0.0.1/er/plugins/clonezilla/x86_64/filesystem.squashfs
+TEXT HELP
+	acpi=off irqpoll noapic noapm nodma nomce nolapic 
+	nosmp vga=normal nosplash
+ENDTEXT

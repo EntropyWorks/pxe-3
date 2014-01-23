@@ -1,0 +1,57 @@
+LABEL RIPX32
+MENU LABEL ^RIP Boot Linux system to X! (x32)
+KERNEL er/plugins/rip/kernel32
+INITRD er/plugins/rip/rootfs.cgz
+APPEND vga=normal xlogin nokeymap root=/dev/ram0 rw
+TEXT HELP
+                 RIP - Recovery Is Possible.
+                 Boot x86 With GUI.
+ENDTEXT
+
+LABEL RIPX64
+MENU LABEL ^RIP Boot Linux system to X!(x64)
+KERNEL er/plugins/rip/kernel64
+INITRD er/plugins/rip/rootfs.cgz
+APPEND vga=normal xlogin nokeymap root=/dev/ram0 rw
+TEXT HELP
+                 RIP - Recovery Is Possible.
+                 Boot x64 With GUI.
+ENDTEXT
+
+LABEL RIP32
+MENU LABEL ^RIP Boot Linux system! (x32)
+KERNEL er/plugins/rip/kernel32
+INITRD er/plugins/rip/rootfsnx.cgz
+APPEND vga=normal nokeymap root=/dev/ram0 rw
+TEXT HELP
+                 RIP - Recovery Is Possible.
+                 Boot x86 No GUI.
+ENDTEXT
+
+LABEL RIP64
+MENU LABEL ^RIP Boot Linux system! (x64)
+KERNEL er/plugins/rip/kernel64
+INITRD er/plugins/rip/rootfsnx.cgz
+APPEND vga=normal nokeymap root=/dev/ram0 rw
+TEXT HELP
+                 RIP - Recovery Is Possible.
+                 Boot x64 No GUI.
+ENDTEXT
+
+LABEL RIPINST32
+MENU LABEL ^RIP Put Linux partition to boot! (x32)
+KERNEL er/plugins/rip/kernel32
+APPEND vga=normal ro root=/dev/XXXX
+TEXT HELP
+                 RIP - Recovery Is Possible.
+                 Edit and put Linux partition to boot for x86.
+ENDTEXT
+
+LABEL RIPINST64
+MENU LABEL ^RIP Put Linux partition to boot! (x64)
+KERNEL er/plugins/rip/kernel64
+APPEND vga=normal ro root=/dev/XXXX
+TEXT HELP
+                 RIP - Recovery Is Possible.
+                 Edit and put Linux partition to boot for x64.
+ENDTEXT

@@ -1,0 +1,30 @@
+#
+# The address the OpenVAS Administrator will listen on.
+#
+
+ADMINISTRATOR_ADDRESS=127.0.0.1
+
+#
+# The port the OpenVAS Administrator will listen on.
+#
+
+ADMINISTRATOR_PORT=9393
+
+#
+# Directory containing the OpenVAS user data
+#
+
+USER_DATA=/var/lib/openvas/users
+
+#
+# File containing the OpenVAS Scanner configuration
+#
+
+SCANNER_CONFIG=/etc/openvas/openvassd.conf
+
+#
+# Script to use for NVT feed synchronization
+#
+
+SYNC_SCRIPT=/usr/sbin/openvas-nvt-sync
+

@@ -1,0 +1,24 @@
+MENU BEGIN CentOS
+MENU LABEL ^CentOS 5.9-6.4
+# ------====> Include Menu Settings <====------
+MENU INCLUDE er/menuinc/header.module
+
+# ------====> Set Specific Page Settings <====------
+MENU BACKGROUND er/plugins/centos/centos.png
+
+MENU INCLUDE er/plugins/centos/5/i386/centosmain.http.menu
+MENU INCLUDE er/plugins/centos/5/i386/centosmain.nfs.menu
+MENU INCLUDE er/plugins/centos/5/i386/centosmain.online.menu
+MENU INCLUDE er/plugins/centos/5/x86_64/centosmain.http.menu
+MENU INCLUDE er/plugins/centos/5/x86_64/centosmain.nfs.menu
+MENU INCLUDE er/plugins/centos/5/x86_64/centosmain.online.menu
+MENU INCLUDE er/plugins/centos/6/i386/centosmain.http.menu
+MENU INCLUDE er/plugins/centos/6/i386/centosmain.nfs.menu
+MENU INCLUDE er/plugins/centos/6/i386/centosmain.online.menu
+MENU INCLUDE er/plugins/centos/6/x86_64/centosmain.http.menu
+MENU INCLUDE er/plugins/centos/6/x86_64/centosmain.nfs.menu
+MENU INCLUDE er/plugins/centos/6/x86_64/centosmain.online.menu
+
+# ------====> Back <====------
+MENU INCLUDE er/menu/shared/menu-back.module
+MENU END

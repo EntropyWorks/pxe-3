@@ -1,0 +1,28 @@
+LABEL GPARTEDDEF
+MENU LABEL ^GParted Live 1024x768
+KERNEL er/plugins/gparted/vmlinuz
+INITRD er/plugins/gparted/initrd.img
+APPEND boot=live config union=aufs noswap noprompt vga=791 ocs_live_run="ocs-live-general" ocs_live_extra_param="" ocs_live_keymap="" ocs_live_batch="no" ocs_lang="" nosplash fetch=tftp://10.0.0.1/er/plugins/gparted/filesystem.squashfs
+TEXT HELP
+				* GParted live version: 0.9.0-7. Live version maintainer: Steven Shiau
+				* Disclaimer: GParted live comes with ABSOLUTELY NO WARRANTY
+ENDTEXT
+
+LABEL GPARTEDSGS
+MENU LABEL ^GParted Live (Safe graphic settings)
+KERNEL er/plugins/gparted/vmlinuz
+INITRD er/plugins/gparted/initrd.img
+APPEND boot=live config union=aufs noswap noprompt vga=normal ocs_live_run="ocs-live-general" ocs_live_extra_param="" ocs_live_keymap="" ocs_live_batch="no" ocs_lang="" vga=normal nosplash fetch=tftp://10.0.0.1/er/plugins/gparted/filesystem.squashfs
+TEXT HELP
+				Disable console frame buffer support
+ENDTEXT
+
+LABEL GPARTEDFS
+MENU LABEL ^GParted Live (Failsafe mode)
+KERNEL er/plugins/gparted/vmlinuz
+INITRD er/plugins/gparted/initrd.img
+APPEND boot=live config union=aufs noswap noprompt vga=normal ocs_live_run="ocs-live-general" ocs_live_extra_param="" ocs_live_keymap="" ocs_live_batch="no" ocs_lang="" acpi=off irqpoll noapic noapm nodma nomce nolapic nosmp nomodeset vga=normal nosplash fetch=tftp://10.0.0.1/er/plugins/gparted/filesystem.squashfs
+TEXT HELP
+				acpi=off irqpoll noapic noapm nodma nomce nolapic 
+				nosmp nomodeset vga=normal nosplash
+ENDTEXT

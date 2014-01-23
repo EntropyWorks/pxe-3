@@ -1,0 +1,5 @@
+.:
+filelist.txt
+initrd-netboot-suse-11.4.x86_64-2.1.1.gz
+initrd-netboot-suse-11.4.x86_64-2.1.1.kernel.2.6.37.6-0.20-default
+stress.menu

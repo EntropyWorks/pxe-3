@@ -1,0 +1,28 @@
+LABEL ABR11017440-ASUR_zh-CN_WITH_acrocmd
+MENU LABEL ^ABR11017440ASUR_zh-CN_WITH_acrocmd
+KERNEL pxelinux.cfg/roms/memdisk
+INITRD http://192.168.31.245/isos/tools/ABR11ASUR_zh-CN.iso
+APPEND iso
+TEXT HELP
+                 Acronis True Image(11017440) with acrocmd
+ENDTEXT
+
+LABEL ACRONISTIH
+MENU LABEL ^Acronis True Image 11345_CN
+KERNEL er/plugins/acronistih/kernel.dat
+INITRD er/plugins/acronistih/ramdisk.dat
+APPEND vga=791 ramdisk_size=32768 acpi=off quiet noapic
+#APPEND vga=791 ramdisk_size=100000 acpi=off noapic
+TEXT HELP
+                 Acronis True Image 11345_CN.
+
+ENDTEXT
+
+LABEL ACRONISTI-11345-ISO
+MENU LABEL ^Acronis True Image 11345_CN-ISO
+KERNEL pxelinux.cfg/roms/memdisk
+INITRD http://192.168.31.245/isos/tools/ABR11345CN.iso
+APPEND iso
+TEXT HELP
+                 Acronis True Image 11345_CN.
+ENDTEXT

@@ -1,0 +1,47 @@
+LABEL CentOS 6.2-x86_64-manual-http
+    KERNEL http://10.24.4.4/os/centos6u2-64/images/pxeboot/vmlinuz
+    INITRD http://10.24.4.4/os/centos6u2-64/images/pxeboot/initrd.img
+    APPEND ramdisk_size=100000 ip=dhcp method=http://10.24.4.84/os/linux/centos/6.2/x86_64/
+TEXT HELP
+                 Install CentOS x64.
+ENDTEXT
+
+LABEL CentOS 6.3-x86_64-manual-http
+    KERNEL http://10.24.4.4/os/centos6u3-64/images/pxeboot/vmlinuz
+    INITRD http://10.24.4.4/os/centos6u3-64/images/pxeboot/initrd.img
+    APPEND ramdisk_size=100000 ip=dhcp method=http://10.24.4.84/pxe/ks/linux/centos/6.3/x86_64/
+TEXT HELP
+                 Install CentOS x64.
+ENDTEXT
+
+LABEL CentOS 6.2-x86_64-minimal-ks-http
+    KERNEL http://10.24.4.4/os/centos6u2-64/images/pxeboot/vmlinuz
+    INITRD http://10.24.4.4/os/centos6u2-64/images/pxeboot/initrd.img
+    APPEND ramdisk_size=100000 ip=dhcp ks=http://10.24.4.84/pxe/ks/linux/centos/6.2/x86_64/minimal.cfg
+TEXT HELP
+                 Install CentOS x64.
+ENDTEXT
+
+LABEL CentOS 6.3-x86_64-minimal-ks-http
+    KERNEL http://10.24.4.4/os/centos6u3-64/images/pxeboot/vmlinuz
+    INITRD http://10.24.4.4/os/centos6u3-64/images/pxeboot/initrd.img
+    APPEND ramdisk_size=100000 ip=dhcp ks=http://10.24.4.84/pxe/ks/linux/centos/6.3/x86_64/minimal.cfg
+TEXT HELP
+                 Install CentOS x64.
+ENDTEXT
+
+LABEL CentOS 6.4-x86_64-minimal-desktop-ks-http
+    KERNEL http://10.24.4.4/os/centos6u4-64/images/pxeboot/vmlinuz
+    INITRD http://10.24.4.4/os/centos6u4-64/images/pxeboot/initrd.img
+    APPEND ramdisk_size=100000 ip=dhcp ks=http://10.24.4.84/pxe/ks/linux/centos/6.4/x86_64/minimal-desktop.cfg
+TEXT HELP
+                 Install CentOS x64.
+ENDTEXT
+
+LABEL RHEL 6.4-x86_64-minimal-desktop-ks-http
+    KERNEL http://10.24.4.4/os/rhels6u4-64/images/pxeboot/vmlinuz
+    INITRD http://10.24.4.4/os/rhels6u4-64/images/pxeboot/initrd.img
+    APPEND clocksource=jiffies clocksource_failover=hpet ramdisk_size=100000 ip=dhcp ks=http://10.24.4.84/pxe/ks/linux/rhel/6.4/x86_64/minimal-desktop.cfg
+TEXT HELP
+                 Install CentOS x64.
+ENDTEXT

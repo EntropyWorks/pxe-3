@@ -1,0 +1,14 @@
+MENU BEGIN BACKBOX
+MENU LABEL ^BlackBuntu 0.3
+# ------====> Include Menu Settings <====------
+MENU INCLUDE er/menuinc/header.module
+
+# ------====> Set Specific Page Settings <====------
+MENU BACKGROUND er/plugins/blackbuntu/blackbuntu.png
+
+MENU INCLUDE er/plugins/blackbuntu/i386/blackbuntumain.menu
+MENU INCLUDE er/plugins/blackbuntu/x86_64/blackbuntumain.menu
+
+# ------====> Back <====------
+MENU INCLUDE er/menu/shared/menu-back.module
+MENU END

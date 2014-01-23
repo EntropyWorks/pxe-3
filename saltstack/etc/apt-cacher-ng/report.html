@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+   <head>
+      <title>Apt-Cacher NG transfer statistics</title>
+      $STYLE
+
+   </head>
+   <body>
+      <div class="title"><span>Apt-Cacher NG maintenance page for @H</span></div>
+      <div class="visarea">
+         <h2>Transfer statistics</h2>
+         <table border=0 cellpadding=2 cellspacing=1 bgcolor="black">
+            <tr>
+               <td class="coltitle" rowspan=3>Period</td>
+               <td class="coltitle" colspan=8>Cache efficiency</td>
+            </tr>
+            <tr>
+               <td class="coltitle"><span>&nbsp;</span></td>
+               <td class="coltitle" colspan=3>Requests</td>
+               <td class="coltitle"><span>&nbsp;</span></td>
+               <td class="coltitle" colspan=3>Data</td>
+            </tr>
+            <tr bgcolor="white">
+               <td class="coltitle"><span>&nbsp;</span></td>
+               <td class="coltitle">Hits</td>
+               <td class="coltitle">Misses</td>
+               <td class="coltitle">Total</td>
+               <td class="coltitle"><span>&nbsp;</span></td>
+               <td class="coltitle">Hits</td>
+               <td class="coltitle">Misses</td>
+               <td class="coltitle">Total</td>
+            
+            </tr>
+            @T
+         </table>
+         <br>
+         Note: data table is created based current log file. Deviation from real request count is possible due to previous log file optimization.
+         <h2>Configuration instructions</h2>
+         Please visit any invalid download URL to see <a href=/>configuration
+            instructions</a> for users. For system administrators, read the manual
+         which may be available on the <a href=file:///usr/share/doc/apt-cacher-ng/html/index.html>local filesystem</a> or
+         be <a href=http://$SERVERIP/doc/apt-cacher-ng/html/index.html>browsable here</a>.
+         <h2>Index update and processing options</h2>
+         Temporary options for the general behavour and index update
+         configuration can set in this user interface. They are only relevant
+         to expiration and import features triggered below.
+         <br />
+               <input type="checkbox" name="abortOnErrors" value="aOe" @A> Stop cleanup on errors during index update step
+               <br>
+               <input type="checkbox" name="beVerbose" value="bV"> More verbosity
+               <br>
+               <input type="checkbox" name="forceRedownload" value="fRd"> Force the download of index files (even having fresh ones)
+               <br>
+
+         <h2>Expiration</h2>
+         <p>
+         Expiration mechanism is needed to delete files from the local cache when
+         they are removed on the servers, e.g. when the software versions of the
+         package is updated and the package files are replaced. This is rarely
+         needed when Stable system distribution is used by the clients, but use of
+         unstable branches with high fluctuation requires to clean up the local
+         cache from time to time. ACNG includes helper code to identify
+         unreferenced files automatically (executed with the button below).
+         <br>
+         <b>Warning:</b> this operation may redownload all index files. The current
+         implementation does not support delta-based reconstruction of index files
+         ("pdiff" mechanism).
+         </p>
+
+         <form action="#bottom">
+            <p>
+            <h3>Scan and semi-automatic expiration</h3>
+            The default method does update the index files, check the
+            files present in the cache and optionally delete them. The
+            checks consist of file name comparison and optionally file
+            contents verification or directory location comparison.
+            Files that are not listed in any index file or have
+            incorrect contents are marked for removal in one of the
+            later sessions, or can be removed by direct user action
+            triggered with the controls below.
+            <p></p>
+            <!--/td>
+         </tr>
+         <tr>
+            <td valign=top-->
+               <input type="checkbox" name="skipHeadChecks" value="sHC"> Skip header checks (faster, not detecting bad metadata)
+               <br>
+               <input type="checkbox" name="byPath" value="bP"> Validate by file name AND file directory (<font color=red>not recommended</font>)
+               <br>
+               <input type="checkbox" name="byChecksum" value="bS"> Validate by file name AND file contents through checksum (<font color=red>SLOW</font>). Also detects corrupted files.
+               <br>
+               <input type="checkbox" name="purgeNow" value="pN"> Purge unreferenced files after scan
+               <br>
+               <!--br>
+               <input type="checkbox" name="justRemove" value="oR"> No scan, just execute pending removals
+               <br>
+               <!input type="checkbox" name="justShow" value="oR"> No scan, just SHOW pending removals -->
+               <br>
+               <input type="submit" name="doExpire" value="Start Scan and/or Expiration">
+
+               <h3>Direct actions</h3>
+               <input type="submit" name="justShow" value="Show unreferenced">
+               <input type="submit" name="justRemove" value="Delete unreferenced">
+            </form>
+            <h2>Import</h2>
+            <p>
+            Importing package files from foreign sources works in following case:
+            <p>
+            Files can be assigned to <b>known</b> download locations. The
+            locations become known when they are found in index files. However,
+            this index files must exist in the package cache, therefore at least
+            one client needs to download them, i.e. running "<b>apt-get update</b>" on a client system
+            which is configured for use with ACNG. See ACNG manual for more details.
+            <p>
+            <!--
+            </li>
+         </ul>
+         -->
+         When all conditions are met <!--for one of the described ways,--> put your files into
+         the "_import" directory, e.g. <i>/var/cache/apt-cacher-ng/_import/</i>.
+         Subdirectories and symlinks are ok. Then run import.       </p>
+         <form action="#bottom">
+            <p>
+            <input type="submit" name="doImport" value="Start Import">
+            </p>
+         </form>
+      </div>
+   </body>
+</html>
+

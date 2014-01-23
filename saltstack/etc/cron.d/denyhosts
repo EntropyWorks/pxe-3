@@ -1,0 +1,12 @@
+# The Fedora default is to use daemon mode, but if you wish to have
+# denyhosts run periodically, you can uncomment the appropriate two lines
+# and edit /etc/sysconfig/denyhosts.  (You will also have to start the
+# "service" and set it to run at boot if necessary.)
+#
+# Run denyhosts occasionally; adjust the time span to your liking
+#*/10 * * * * root [ -f /var/lock/subsys/denyhosts.init ] && /usr/bin/denyhosts.py -c /etc/denyhosts.conf
+#
+# Automatically purge old entries early in the morning.  Note that you must
+# edit /etc/denyhosts.conf and set PURGE_DENY to something reasonable, as the
+# default value purge time is set very high.
+#0 5 * * * root [ -f /var/lock/subsys/denyhosts.init ] && /usr/bin/denyhosts.py -c /etc/denyhosts.conf --purge

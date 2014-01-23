@@ -1,0 +1,26 @@
+#!ipxe
+set server http://192.168.11.9:8080/pxe
+
+params --name hwinfo
+param --params hwinfo name ${net0/mac}
+param --params hwinfo uuid ${uuid}
+param --prarms hwinfo manu ${manufacture}
+param --params hwinfo prod ${product}
+param --params hwinfo serial ${serial}
+param --params hwinfo userclass ${userclass}
+
+# get os install info
+#chain ${server}/##params=hwinfo || autoboot
+
+# or use another way
+#set mac ${net0/mac}
+#set ip ${net0/ip}
+#set inst ${server}/${mac}-${uuid}/${hostname}
+
+#chain ${server}/${inst} || autoboot
+#chain ${server}/${uuid} || autoboot
+#chain ${server}/${mac} || autoboot
+#chain ${server}/${ip} || autoboot
+#chain ${server}/${hostname}.ipxe || autoboot
+
+boot

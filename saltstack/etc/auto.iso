@@ -1,0 +1,24 @@
+# minimal.iso
+centos60-64-min -fstype=iso9660,ro,nosuid,nodev,loop :/mnt/isos/linux/x86_64/CentOS-6.0-x86_64-minimal.iso
+
+centos62-64-min -fstype=iso9660,ro,nosuid,nodev,loop :/mnt/isos/linux/x86_64/CentOS-6.2-x86_64-minimal.iso
+centos62-64	-fstype=iso9660,ro,nosuid,nodev,loop :/mnt/isos/linux/x86_64/CentOS-6.2-x86_64-bin-DVD1.iso
+centos63-64	-fstype=iso9660,ro,nosuid,nodev,loop :/mnt/isos/linux/x86_64/CentOS-6.3-x86_64-bin-DVD1.iso
+centos63-64-min -fstype=iso9660,ro,nosuid,nodev,loop :/mnt/isos/linux/x86_64/CentOS-6.3-x86_64-minimal.iso
+centos64-64-min -fstype=iso9660,ro,nosuid,nodev,loop :/mnt/isos/linux/x86_64/CentOS-6.4-x86_64-minimal.iso
+centos6u4-64 	-fstype=iso9660,ro,nosuid,nodev,loop :/mnt/isos/linux/x86_64/CentOS-6.4-x86_64-bin-DVD1.iso
+centos64-64-net -fstype=iso9660,ro,nosuid,nodev,loop :/mnt/isos/linux/x86_64/CentOS-6.4-x86_64-netinstall.iso
+#RHEL
+rhels6u3-64 	-fstype=iso9660,ro,nosuid,nodev,loop :/mnt/isos/linux/x86_64/rhel-server-6.3-x86_64-dvd.iso
+
+# netinstall.iso
+ubuntu1004-64-net -fstype=iso9660,ro,nosuid,nodev,loop :/mnt/isos/linux/x86_64/ubuntu-10.04-64-minicd.iso
+ubuntu1204-64-net -fstype=iso9660,ro,nosuid,nodev,loop :/mnt/isos/linux/x86_64/ubuntu-12.04-64-minicd.iso
+#
+ubuntu1004-64-svr -fstype=iso9660,ro,nosuid,nodev,loop :/mnt/isos/linux/x86_64/ubuntu-10.04-server-amd64.iso
+ubuntu1204-64-alt -fstype=iso9660,ro,nosuid,nodev,loop :/mnt/isos/linux/x86_64/ubuntu-12.04.1-alternate-amd64+mac.iso
+ubuntu1204-64-svr -fstype=iso9660,ro,nosuid,nodev,loop :/mnt/isos/linux/x86_64/precise-server-amd64.iso
+#tools
+
+#XenServer
+xs602 -fstype=iso9660,ro,nosuid,nodev,loop :/mnt/isos/hypervisor/XenServer-6.0.201-install-cd_100G.iso

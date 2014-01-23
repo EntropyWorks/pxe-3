@@ -1,0 +1,13 @@
+MENU BEGIN GParted
+MENU LABEL ^GParted 0.9.0.7
+# ------====> Include Menu Settings <====------
+MENU INCLUDE er/menuinc/header.module
+
+# ------====> Set Specific Page Settings <====------
+MENU BACKGROUND er/plugins/gparted/gparted.png
+
+MENU INCLUDE er/plugins/gparted/gpartedmain.menu
+
+# ------====> Back <====------
+MENU INCLUDE er/menu/shared/menu-back.module
+MENU END

@@ -1,0 +1,9 @@
+# Should DenyHosts run in daemon mode?
+# If not set to "yes", you also need to edit /etc/cron.d/denyhosts
+# and uncomment the appropriate lines.
+DAEMON=yes
+
+# Set EXTRA_OPTIONS to pass additional settings to denyhosts when run in daemon
+# mode.
+# For example, uncomment the following line to enable additional debugging.
+#EXTRA_OPTIONS="--debug"

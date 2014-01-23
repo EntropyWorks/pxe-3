@@ -1,0 +1,13 @@
+MENU BEGIN XenServer
+MENU LABEL ^Citrix XenServer
+# ------====> Include Menu Settings <====------
+MENU INCLUDE er/menuinc/header.module
+
+# ------====> Set Specific Page Settings <====------
+MENU BACKGROUND er/plugins/xenserver/xenserver.png
+
+MENU INCLUDE er/plugins/xenserver/6.0.2/xenservermain.menu
+  
+# ------====> Back <====------
+MENU INCLUDE er/menu/shared/menu-back.module
+MENU END

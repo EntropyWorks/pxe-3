@@ -1,0 +1,617 @@
+
+###############################################
+# -- Thinstation sample configuration file -- #
+###############################################
+#
+# This file must be named "thinstation.conf<xxx>" where <xxx> can be:
+# .buildtime   Defines the defaults build into the image (note the leading .)
+# .network     Default config file loaded from the TFTP server.
+# .user        Config file on local storage.
+# -<name>      Specific config file on the TFTP server for the terminal
+#              "name" (e.g. thinstation.conf-paul). Requires thinstation.hosts. 
+# .group-<id>  Config file for a group of terminals (e.g. with printer setup
+#              for those terminal with local printers. Requires thinstation.hosts.
+# -<IP>        Specific config file on the TFTP server for the terminal with
+#              the IP number <IP> specified.
+# -<MAC>       Specific config file on the TFTP server for the terminal with 
+#              the MAC address specified.
+
+##
+# --- General Options
+#
+# AUDIO_LEVEL        Audio Level for sound, 0-100
+# KEYBOARD_MAP       Keyboard layout
+# TIME_ZONE          Used to set time zone on TS client by entering the UTC offset.
+#                    This can be set automatically if the appropriate dhcpc option is selected
+#                    (Option 2, time offset in seconds)
+# SYSLOG_SERVER      Log server ip address or hostname.
+#                    If the work "local" is used, then syslog starts logging locally
+#                    If not specified syslogd is not loaded.
+# USB_ENABLED        Enable USB Drivers into memory if USB package is chosen
+# USB_STORAGE_SYNC   ON    Safer writing
+#                    OFF   Faster writes to USB storage devices
+#                    WARNING: This may lead to data corruption when the device is unplugged
+#                             before buffers have been flushed
+# USB_MOUNT_DIR      Directory to use for mounting usbdisks (default: /mnt/usbdevice)
+# USB_MOUNT_USELABEL Label to use for individual usb disks
+#                    default is to use the device name (eg. sda1 - /mnt/usbdevice/sda1)
+#                    NO       use default ONLY
+#                    YES      will use label on usb volume if exists or fallback to default
+#                    <label>  will use label on usb volume if exists or <label> otherwise
+#                    adds suffix of n (1,2,3,etc.) if duplicate labels found
+# USB_MOUNT_OPTIONS  additional mount options for usb devices (eg. utf8,shortname=win95)
+# 		     see mount documentation for details (man mount)
+# DAILY_REBOOT       Will reboot server if up over a day and one of the session
+#                    types is closed
+# AUTOPLAYCD         If enabled this will autoplay music cds when inserted.
+# CUSTOM_CONFIG      Allows choosing custom boot config, On/Off 
+# RECONNECT_PROMPT   This displays the reconnection/shutdown options for when a session is ended
+#
+#                    OFF    No reconnect prompt
+#                    ON     Reconnect prompt will be displayed
+#                    AUTO   Automatic reconnect
+#                    AUTOXX Automatic reconnect attempt after XX seconds - msg is displayed
+#                    MENU   Shows a menu with a shutdown and reconnection option
+#                    MENUXX As MENU option, but the XX is a time period in minutes.
+#                           After XX minutes shutdown will occur unless the reconnect option
+#                           is choosen
+#
+# CRON_JOB           User definable cron job. Format: m h dom mon dow command 
+#                    m=minute (0-59), h=hour (0-23), dom=day of month (1-31), 
+#                    mon=month (1-12), dow=day of week (0-6, sunday=0)
+
+AUDIO_LEVEL=67
+KEYBOARD_MAP=en_us
+TIME_ZONE="UTC-12:30"
+SYSLOG_SERVER=local
+USB_ENABLED=On
+#USB_STORAGE_SYNC=On
+#USB_MOUNT_DIR="/mnt/usbdevice"
+#USB_MOUNT_USELABEL="Yes"
+#USB_MOUNT_OPTIONS="utf8,shortname=win95"
+DAILY_REBOOT=On
+#AUTOPLAYCD=On
+CUSTOM_CONFIG=Off
+RECONNECT_PROMPT=On
+#CRON_JOB="00 20 * * * /bin/poweroff"
+
+##
+# --- Session Defaults
+# -- Default Settings for all sessions
+#
+# SCREEN           Display number to run the X server on
+# AUTOSTART        ON   Application will be executed immediately at startup
+#                  OFF  Application will appear in a menu to be started manually
+# WORKSPACE        Workspace in the window manager to run the application in
+# ICONMODE         MANUAL  Default sessions are not created in window manager/xtdesk
+#                  AUTO    Default sessions types are created in window manager/xtdesk
+
+SCREEN=0
+WORKSPACE=1
+AUTOSTART=On
+ICONMODE=AUTO
+
+##
+# --- Session Details
+#
+# Note:                     # is a number equal to or greater than 0
+#
+# SESSION_#_TITLE           Title description for SESSION. Needed for replimenu.
+# SESSION_#_TYPE            Package type, choose beetwen:
+#                           - vncviewer        Start vncviewer in X
+#                           - rdesktop         Start rdesktop in X
+#                           - x                Start x-terminal session (xdm)
+#                           - xnest            Start x-terminal session (xdm) from within blackbox
+#                           - ssh              Start ssh client in linux console
+#                           - telnet           Start telnet client in linux console
+#                           - ica              Start Citrix ICA client in X
+#                           - ica_wfc          Start ICA Manager
+#                           - blackbox         Start blackbox window manager session
+#                           - icewm            Start icewm window manager session
+#                           - dillo            Start Web Browser in X
+#                           - tftpd            Start tftp daemon
+#                           - tarantella       Start tarantella client
+#                           - rxvt             Start light xterm client
+#                           - xterm            Start xterm client
+#                           - tn5250           Start AS400 client in linux console
+#                           - nx               Start NX Client Session
+# SESSION_#_SCREEN          Display number to run the X server on
+# SESSION_#_AUTOSTART       ON      Application will be executed immediately at startup
+#                           OFF     Application will appear in a menu to be started manually
+# SESSION_#_CUSTOM_CONFIG   ON      Allows choosing custom config for when session starts
+#                           OFF     Session boots normally
+# SESSION_#_ICON            ON      Places Icon on Desktop if package xtdesk is selected and
+#                                   in Window Manager Main Menu
+#                           SUBMENU Places Icon on Desktop if package xtdesk is selected and
+#                                   in a Submenu within the window manager
+# SESSION_#_WORKSPACE       Workspace to run program on in a window manager
+# SESSION_#_type_SERVER     IP address/hostname of the server
+# SESSION_#_type_OPTIONS    Command line options for the session type
+#
+# SESSION_#_type_specific   This allows you to specify specific config file details for certain session
+#                           types.  Currently support is NX and ICA.  Any configuration file setting
+#                           can be changed with this setting.  An example of this is
+#                           SESSION_0_NX_GENERAL_DESKTOP="Gnome"
+#                           SESSION_0_ICA_APPSRV_USEFULLSCREEN="Yes"
+#                           See your application manual for documentation on the settings which
+#                           can be used.
+
+
+# Individual Session Settings, override defaults
+#
+# IMPORTANT:  Make sure you minimum have a SESSION_0. Otherwise you will get an error 
+# on boot. You may have additional sessions: SESSION_1, SESSION_2 ...
+# SESSION_0 is on ctrl-alt-F3
+# SESSION_1 is on ctrl-alt-F4
+# ... etc.
+
+
+# -- Citrix ICA Options
+#
+#                       GLOBAL Settings
+#ICA_USE_SERVER_KEYBOARD    Use default server keyboard, otherwise use KEYBOARD_MAP
+#                           variable
+#ICA_BROWSER_PROTOCOL       Broswer protocol, can be HTTPonTCP or UDP
+#
+#                           APPLICATION SET settings
+#ICA_ENCRYPTION             Encryption level for ICA
+#                           Valid Settings Below
+#                           "Basic"
+#                           "RC5 (128 bit - Login Only)"
+#                           "RC5 (40 bit)"
+#                           "RC5 (128 bit)"
+#                           "RC5 (56 bit)"
+#ICA_COMPRESS               Compression, On/Off
+#ICA_AUDIO                  Audio, On/Off
+#ICA_SMARTCARD              Smart Card Reader Support, On/Off  (Note: You must include a card
+#                                                                     reader package for this
+#                                                                     option to work).
+#ICA_DISABLECTRLALTDEL	    On/Off
+#ICA_AUDIO_QUALITY          Audio Quality, Low, Medium, High
+#ICA_PRINTER                This will turn on ICA autocreate printers, see printer section
+#                           for details, On/Off
+#
+#                           NOTE: You must have the lpr package included for this option
+#                           to work.
+#
+#ICA_APPLICATION_SET        Published Application (Not needed if using
+#                           ICA_SERVER)
+#ICA_SERVER                 Server to Connect to (Not needed if using
+#                           ICA_APPLICATION_SET, but needed if the ICA-Masterbrowser
+#                           is not on the local network.)
+#ICA_WFCLIENT_type_specific This allows you to specify specific config file details for global ica
+#                           parameters any parameter can be changed with this setting. An example of this is
+#                           ICA_WFCLIENT_CLIENTDRIVE="On"
+#                           See your application manual for documentation on the settings which
+#                           can be used.
+
+#ICA_USE_SERVER_KEYBOARD=Off
+#ICA_BROWSER_PROTOCOL=HTTPonTCP
+#ICA_SERVER=
+#ICA_ENCRYPTION=Basic
+#ICA_COMPRESS=On
+#ICA_AUDIO=On
+#ICA_SMARTCARD=Off
+#ICA_DISABLECTRLALTDEL=On
+#ICA_AUDIO_QUALITY=Low
+#ICA_PRINTER=Off
+#ICA_SEAMLESS_WINDOW=Off
+
+#SESSION_1_TYPE=ica
+#SESSION_1_ICA_APPLICATION_SET="Microsoft Word"
+#SESSION_1_ICA_OPTIONS="-username donald -clearpassword qwak -domain disney"
+#SESSION_1_ICON=ON
+
+#SESSION_2_TYPE=ica
+#SESSION_2_ICA_SERVER=ICA
+
+#SESSION_3_TYPE=ica_wfc
+
+
+#SESSION_#_TYPE=icewm
+
+# -- NX Options
+
+#NX_NOPASSWORD="ON"      # disables the functionality to save the username and password
+                        # in the NX session file. This is handy when an NX terminal has
+                        # multiple users and the administrator needs to enforce the keying
+                        # in of the NX user credentials before each session. It ensures
+                        # that only pre-established users can access the NX server via NX client.
+        
+#NX_NOEXIT="ON"          # disables all Close buttons in the NX client GUI.  When the user closes
+                        # or loses a running session, a new NX client dialog box automatically
+                        # appears on the desktop, ready for the next user to start a new session
+                        # or for the current user to re-connect to his lost session. This is
+                        # welcome where client terminals have multiple users who need to access
+                        # their session quickly and easily.
+        
+#NX_NOCONFIG="ON"        # disables all user possibilities to configure new session setups or
+                        # modify existing ones. This allows the administrator to completely lock
+                        # down the types of sessions a user can run. This feature works only when
+                        # the NX client is started with the --session or --plugin option.
+
+#SESSION_#_NX_LOGIN_USER="Thinstation"
+
+#SESSION_#_TYPE=nx
+#SESSION_#_TITLE="Gnome"
+#SESSION_#_NX_ADVANCED_ENABLE_SSL_ENCRYPTION="true"
+#SESSION_#_NX_GENERAL_DESKTOP="Gnome"
+#SESSION_#_NX_GENERAL_SERVER_HOST="nx-server-ip"
+#SESSION_#_NX_GENERAL_REMEMBER_PASSWORD="true"
+#SESSION_#_NX_GENERAL_RESOLUTION="fullscreen"
+#SESSION_#_NX_GENERAL_SESSION="Unix"
+
+#SESSION_#_TYPE=nx
+#SESSION_#_TITLE="Firefox"
+#SESSION_#_NX_ADVANCED_ENABLE_SSL_ENCRYPTION="true"
+#SESSION_#_NX_GENERAL_DESKTOP="Console"
+#SESSION_#_NX_GENERAL_SERVER_HOST="nx-server-ip"
+#SESSION_#_NX_GENERAL_REMEMBER_PASSWORD="true"
+#SESSION_#_NX_GENERAL_COMMAND_LINE="/usr/local/firefox/firefox"
+#SESSION_#_NX_GENERAL_SESSION="Unix"
+#SESSION_#_NX_GENERAL_ONLY_CONSOLE="false"
+
+#SESSION_#_TYPE=nx
+#SESSION_#_TITLE="Windows"
+#SESSION_#_NX_ADVANCED_ENABLE_SSL_ENCRYPTION="true"
+#SESSION_#_NX_GENERAL_DESKTOP="RDP"
+#SESSION_#_NX_GENERAL_RESOLUTION_VALUE="fullscreen"
+#SESSION_#_NX_GENERAL_SERVER_HOST="nx-server-ip"
+#SESSION_#_NX_GENERAL_SESSION="Windows"
+#SESSION_#_NX_WINDOWS_SESSION_SERVER="windows-server-ip"
+#SESSION_#_NX_WINDOWS_SESSION_AUTHENTICATION="1"
+
+#SESSION_0_TYPE=nx
+#SESSION_0_TITLE="xfce4"
+#SESSION_0_NX_ADVANCED_ENABLE_SSL_ENCRYPTION="true"
+#SESSION_0_NX_GENERAL_DESKTOP="console"
+#SESSION_0_NX_GENERAL_CUSTOM_UNIX_DESKTOP="application"
+#SESSION_0_NX_GENERAL_SERVER_HOST="10.0.0.7"
+#SESSION_0_NX_GENERAL_REMEMBER_PASSWORD="true"
+#SESSION_0_NX_GENERAL_COMMAND_LINE="/usr/bin/startxfce4"
+#SESSION_0_NX_GENERAL_SESSION="Unix"
+#SESSION_0_NX_GENERAL_ONLY_CONSOLE="false"
+
+# To support a USB and CDROM share for NX, include:
+# Client shares requires Samba server and Samba client:
+#
+#SESSION_#_NX_SERVICES_SHARES="true"
+#SESSION_#_NX_SERVICES_AUDIO="false"
+#
+#SESSION_#_NX_SHARE0_ALIAS="\$(SHARES)/usb"  # make sure to escape $ chars
+#SESSION_#_NX_SHARE0_PASSWORD="DO NOT EDIT"  # Don't touch. The proper PW is supplied automatically
+#SESSION_#_NX_SHARE0_SHARENAME="usb"
+#SESSION_#_NX_SHARE0_TYPE="disk"
+#SESSION_#_NX_SHARE0_USERNAME="root"
+#
+#SESSION_#_NX_SHARE1_ALIAS="\$(SHARES)/cdrom"  # make sure to escape $ chars
+#SESSION_#_NX_SHARE1_PASSWORD="DO NOT EDIT"  # Don't touch. The proper PW is supplied automatically
+#SESSION_#_NX_SHARE1_SHARENAME="cdrom"
+#SESSION_#_NX_SHARE1_TYPE="disk"
+#SESSION_#_NX_SHARE1_USERNAME="root"
+#
+#SESSION_#_NX_SHARE_CHOSEN_SHARE_NUMBER="2"  # Total number of Samba shares. Do set properly!
+#SESSION_#_NX_SHARE_CHOSEN_SHARE0="Share0"
+#SESSION_#_NX_SHARE_CHOSEN_SHARE1="Share1"
+
+
+# The -a option here specifies the color depth
+# Note certain servers support certain color depths, wrong settings with this
+# May cause your connection to fail.
+#SESSION_#_TITLE="Big Bad Server Donald"
+#SESSION_#_TYPE=rdesktop
+#SESSION_#_SCREEN=1
+#SESSION_#_SCREEN_POSITION=2
+#SESSION_#_RDESKTOP_SERVER=192.168.1.1
+#SESSION_#_RDESKTOP_OPTIONS="-u user -p password -a 16"
+#SESSION_#_AUTOSTART=Off
+
+#SESSION_#_TITLE="Big Bad Server Road Runner"
+#SESSION_#_TYPE=rdesktop
+#SESSION_#_SCREEN=1
+#SESSION_#_RDESKTOP_SERVER=192.168.1.1
+#SESSION_#_RDESKTOP_OPTIONS="-u 'fred' -a 8"
+#SESSION_#_AUTOSTART=Off
+
+#Example on USB Printer Redirection for Rdesktop
+#SESSION_#_TITLE="Remote Desktop 24-bit (usb printer)"
+#SESSION_#_TYPE=rdesktop
+#SESSION_#_RDESKTOP_SERVER=192.168.1.1
+#SESSION_#_RDESKTOP_OPTIONS="-a 24 -x b -r printer:usb='DYMO LabelWriter 400 Turbo'"
+#SESSION_#_AUTOSTART=Off
+
+#SESSION_#_TYPE=ssh
+#SESSION_#_SSH_SERVER=192.168.1.2
+
+#SESSION_#_TYPE=vncviewer
+#SESSION_#_VNCVIEWER_SERVER=192.168.1.2
+
+
+##
+# --- X Server Options
+#
+# SCREEN_RESOLUTION       Screen resolutions available in the workstations
+# SCREEN_COLOR_DEPTH      Number of bits per pixel (8,16,24)
+# SCREEN_HORIZSYNC        Monitor horizontal sync frequency in kHz.
+#                         If left blank Xorg will try to detect with DDC
+# SCREEN_VERTREFRESH      Monitor vertical refresh frecuency in Hz.
+#                         If left blank Xorg will try to detect with DDC
+# SCREEN_X_FONT_SERVER    IP address or hostname of the font server for X
+#                       
+#                         Screen Saver Settings (put zero for "never")
+# SCREEN_BLANK_TIME       Minutes to X session goes blank
+# SCREEN_STANDBY_TIME     Minutes to X session goes into standby mode
+# SCREEN_SUSPEND_TIME     Minutes to X session goes into suspend mode
+# SCREEN_OFF_TIME         Minutes to X session turn off
+#
+# DONT_VT_SWITCH_STATE    Disallows the use of the Ctrl+Alt+Fn sequence (true/false)
+# DONT_ZAP_STATE          Disallows the use of the Ctrl+Alt+Backspace sequence. 
+#                         This sequence restarts the X server (true/false)
+
+# MOUSE_PROTOCOL          Mouse protocol type (Microsoft, PS/2, etc.)
+#                         (mouse is autodetected, use this only if it fails)
+# MOUSE_DEVICE            Mouse device:  /dev/ttyS0 -> COM1
+#                                   /dev/ttyS1 -> COM2
+#                                   /dev/ttyS2 -> COM3
+#                                   /dev/ttyS3 -> COM4
+#                                   /dev/psaux -> PS/2 mouse port
+#                                   /dev/input/mice -> USB mouse (needs USB package)
+# MOUSE_RESOLUTION        Mouse resolution
+# MOUSE_ACCELERATION      Mouse acceleration
+# X_NUMLOCK		  Set numlock state on boot
+# X_COOKIE                Will set X Cookie if specified
+# -- Advanced XServer Options - Experts Only
+# X_DRIVER_NAME           Driver for X, this will override the autodetection scripts
+# X_DRIVER_BUSID          Screen Card BusID
+# X_DRIVER_OPTION1-5      Addditional options for driver
+# X_MONITOR_OPTION1-5     Addditional options for monitor
+# X_MONITOR_MODELINE      Add user defined ModeLine
+
+SCREEN_RESOLUTION="1024x768 | 800x600 | 640x480 | *"
+SCREEN_COLOR_DEPTH="24 | 16 | 8 | *"
+#SCREEN_HORIZSYNC="30-64 | *"
+#SCREEN_VERTREFRESH="56-87 | 60 | 56 | 70 | 72 | 75"
+#SCREEN_X_FONT_SERVER=192.168.1.2:7100
+SCREEN_BLANK_TIME=10
+SCREEN_STANDBY_TIME=20
+SCREEN_SUSPEND_TIME=30
+SCREEN_OFF_TIME=60
+DONT_VT_SWITCH_STATE=false
+DONT_ZAP_STATE=false
+#MOUSE_PROTOCOL=PS/2
+#MOUSE_DEVICE=/dev/psaux
+MOUSE_RESOLUTION=100
+#MOUSE_ACCELERATION=1/2
+X_COOKIE=36d71ab65c10ef065702c111a3d31593
+#X_NUMLOCK=Off
+# -- Advanced Options - Experts Only
+#X_DRIVER_NAME="mga"
+#X_DRIVER_BUSID="PCI:1:0:0"
+X_DRIVER_OPTION1="swcursor On"
+#X_DRIVER_OPTION2="ActiveDevice CRT"
+#X_DRIVER_OPTION3="noDDC Off"
+#X_DRIVER_OPTION4="UseBios Off"
+#X_MONITOR_OPTION1="DPMS On"
+#X_MONITOR_OPTION2="TargetRefresh 60"
+#X_MONITOR_MODELINE='"1680x1050" 146.2 1680 1784 1960 2240 1050 1053 1059 1089 -HSync -VSync'
+##
+# -- Card Reader Options
+
+#PCSCD_CARDREADER_PORT           # Specify port for serial card, not needed for USB
+#PCSCD_CARDREADER_TYPE           # Can be SERIAL or USB
+
+#PCSCD_CARDREADER_PORT="/dev/ttyS0"
+#PCSCD_CARDREADER_TYPE="USB"
+
+
+##
+# --- PKG Options
+#
+# PKG_PACKAGES       Choice of packages to download for PKG
+#                    You can also use PKG_PACKAGES1-8 for additional package selections
+#                    This is useful for using multiple network group files
+# PKG_PREFIX         Download PKGs from a subdir of /tftpboot or PKG Path if PKG_PATH
+#                    is set in thinstation.conf
+# PKG_PATH           Path to PKG files if not using tftpboot
+#                    Floppy: /mnt/floppy
+#                    CD-ROM: /mnt/cdrom
+#                    HD:     /mnt/disc/hdX/part1   (first disc, first partition)
+#                    NFS:    /mnt/nfs
+#                    Samba:  /mnt/smb
+# MOD_PACKAGES       Choice of modules to download for MPKG
+#                    You can also use MOD_PACKAGES1-8 for additional package selections
+#                    This is useful for using multiple network group files
+# MOD_PREFIX         Downloads and insmod's a module from a subdir of /tftpboot
+#                    if MOD_PREFIX is set in thinstation.conf
+
+#PKG_PACKAGES="blackbox rxvt"
+#PKG_PREFIX=pkg
+#PKG_PATH=/mnt/cdrom
+#MOD_PACKAGES="usb-hid usb-storage"
+#MOD_PREFIX=modules
+
+
+##
+# --- Networking Options
+#
+# NET_HOSTNAME           Hostname to use if not using a thinstation.hosts file, note
+#                        that the machine MAC address will replace any * if used.
+# NET_SMTP_SERVER        Email server address for error logs
+# NET_SMTP_EMAIL         Email address of administrator
+# NET_TIME_SERVER        NTP time server on network to sync against. Use pool.ntp.org or
+#			 <country code>.pool.ntp.org  i.e. dk.pool.ntp.org or nz.pool.ntp.org
+# NET_TELNETD            Enables built-in telnetd server package
+# NET_REMOTE_ACCESS_FROM List of hostnames/ip address accepted by the server
+#                        for remote control, used by telnetd and www packages
+# 
+# -- Mounting networked filesystems --
+#
+# NET_NFS_SERVER         This is the path to the NFS server, ie
+#                        server:/path/to/share.
+# NET_SMB_SERVER         This is the path to the SMB server, ie
+#                        server:/path/to/share. 
+# NET_SMB_WORKGROUP      Workgroup of samba server
+# NET_SMB_USER           This is the username for SMB mounts, password is
+#                        defined at build time in build.conf
+
+#NET_HOSTNAME=donald
+NET_HOSTNAME=ts_*
+#NET_SMTP_SERVER=donald
+#NET_SMTP_EMAIL=donald@duck.org.nz
+#NET_TIME_SERVER=pool.ntp.org		
+NET_TELNETD_ENABLED=On
+NET_REMOTE_ACCESS_FROM="duck.quak.org.au 192.168.0.0 .disney.us"
+#NET_NFS_SERVER=bigserver:/opt/thinstation
+#NET_SMB_USER=duck
+
+
+# -- For use in thinstation.conf.buildtime only:
+#
+# NET_USE_DHCP           Enable DHCP Resolution, On/Off
+# NET_IP_ADDRESS         IP Address of client
+# NET_MASK               Network mask of client
+# NET_GATEWAY            IP Address of gateway
+# NET_DHCP_DELAY	 Delay before continuing script after bringing up interface, only needed if
+#                        using spanning tree "port discovery" in a switched environment.  Default is 0 seconds.
+# NET_FILE_METHOD        Method to download files: tftp, wget or scp. Scp is only available if package ssh
+#                        is selected in build.conf. Wget requires a valid baseurl in build.conf
+# NET_FILE_ENABLED       Use server for config file, On/Off
+# NET_FILE_USER          User to connect to SCP server as
+# NET_FILE_ALTERNATE     Alternate server for vmware or non-standard dhcp servers
+# NET_DNS1               DNS Server 1
+# NET_DNS2               DNS Server 2
+# NET_DNS_SEARCH         Default DNS domain to search
+
+NET_USE_DHCP=On
+#NET_IP_ADDRESS=192.168.0.1
+#NET_MASK=255.255.255.0
+#NET_GATEWAY=192.168.0.254
+#NET_DHCP_DELAY=30
+NET_FILE_ENABLED=Off
+#NET_FILE_METHOD=tftp
+#NET_FILE_USER=needed_for_scp_only
+#NET_FILE_ALTERNATE=192.168.0.4
+#NET_DNS1=192.168.0.2
+#NET_DNS2=192.168.0.3
+#NET_DNS_SEARCH=cartoons.org.nz
+
+
+
+##
+# --- Wireless
+#
+#WIRELESS_ESSID             # ESSID (extended network name) : My Network, any
+#WIRELESS_NWID              # NWID/Domain (cell identifier) : 89AB, 100, off
+#WIRELESS_MODE              # Operation mode : Ad-Hoc, Managed, Master, Repeater, Secondary, auto
+#WIRELESS_FREQ              # 2.422G, 2.46G (frequency)
+#WIRELESS_CHANNEL           # 1, 2, 3 (channel)
+#WIRELESS_SENS              # Sensitivity (cell size + roaming speed) : 1, 2, 3 ; -70 (dBm)
+#WIRELESS_RATE              # Bit rate : auto, 1M, 11M
+#WIRELESS_RTS               # RTS threshold : off, 500
+#WIRELESS_FRAG              # Fragmentation threshold : off, 1000
+#WIRELESS_IWCONFIG          # Other iwconfig parameters : power off, ap 01:23:45:67:89:AB
+#WIRELESS_IWSPY             # iwspy parameters : + 01:23:45:67:89:AB
+#WIRELESS_IWPRIV            # iwpriv parameters : set_port 2, set_histo 50 60
+#WIRELESS_KEY               # Encryption key : 4567-89AB-CD, s:password
+#WIRELESS_WPAKEY            # WPA/WPA2 pre-shared key (PSK): at least 8 ASCII characters
+#WIRELESS_DRIVER            # Driver name for WPA/WPA2 support: madwifi
+
+WIRELESS_ESSID="ssid"
+WIRELESS_NWID=""
+WIRELESS_MODE="managed"
+#WIRELESS_FREQ=""
+#WIRELESS_CHANNEL=""
+#WIRELESS_SENS=""
+#WIRELESS_RATE=""
+#WIRELESS_RTS=""
+#WIRELESS_FRAG=""
+WIRELESS_IWCONFIG=""
+WIRELESS_IWSPY=""
+WIRELESS_IWPRIV=""
+WIRELESS_WPAKEY=""
+WIRELESS_KEY="abcdef"
+WIRELESS_WPAKEY=""
+WIRELESS_DRIVER=madwifi 
+
+
+##
+# --- Permanent Storage Options
+#
+# STORAGE_PATH           Path to where storage device is mounted to save
+#                        profile settings.  This should be one of
+#                        /mnt/usbdevice/sdX/partX or disc
+#                        /mnt/floppy
+#                        /mnt/disc/hdX/partX
+#                        /mnt/nfs
+#                        /mnt/smb
+#
+#                        Note that the profile settings are stored under
+#                        a subfolder for this path.  So the path to the
+#                        stored settings would be something like
+#                        /mnt/floppy/thinstation.profile
+#                        See the FAQ on the website for more details on this
+#
+#                        Also checkout README.IMPORTANT for the valid
+#                        config files which you can place here
+#                        a typical file to store config file settings is
+#                        /mnt/floppy/thinstation.profile/thinstation.conf.user
+#
+#                        Also note that the .profile can be changed by using
+#                        the below STORAGE_PREFIX
+# STORAGE_PREFIX         This is prefex for the folder name to store settings
+#                        in on the storage device.   You can also use one of the
+#                        special characters below.
+#
+#                        M = Mac Address
+#                        H = Hostname
+#                        I = Ip Address
+#
+#                        Note default prefix for storing the profile is
+#                        .profile
+# STORAGE_CONFIG1-8      This is the path for any user defined settings
+#                        which will always override the profile path above
+#                        The files are tried on order on each device specified
+
+
+#STORAGE_PATH=/mnt/nfs
+#STORAGE_PREFIX=H
+#STORAGE_CONFIG1=/mnt/floppy
+#STORAGE_CONFIG2=/mnt/cdrom
+#STORAGE_CONFIG3=/mnt/disc/hda/part1
+#STORAGE_CONFIG4=/mnt/usbdevice/sda/part1
+
+
+##
+#**** EXPERIMENTAL ****
+# Dual Head Support
+#
+# This allows two seperate X sessions to be started with seperate input devices.  This allows
+# effectively two seperate machines within the same PC.  You will need seperate screen cards
+# to enable this.  It is best to use with 1 AGP card and 1 PCI card.
+
+# Check out http://www.ltn.lv/~aivils/eng-video.html for a list of known compatable screen cards
+
+# Input Device support should be:
+#
+# Primary mouse and keyboard PS/2
+# Secondary mouse and keyboard USB
+#
+# There is some basic detection scripts for this, but these will need to be improved in TS 3.0.
+# If thinstation doesn't detect both a USB keyboard and mouse it will default back to dual
+# screen support, not dual head.
+#
+# This is not considered stable.  If you exit the session, or try to change to a console screen
+# with Alt-F1 etc... it will probably crash the machine.  If it doesn't work with your hardware
+# there is nothing that can be done about it.
+
+# The kernel Advanced Power Management module is disabled when using dual screen as it causes the
+# second screen to crash.
+
+# Note the below option only supports 1-2, anything more than two won't work.  This is provided
+# for future development, to create a machine with more than two seperate sessions.
+
+# SESSION_#_SCREEN_POSITION 1-X When using dual screen support you can specify the position
+#                               of each session.  This allows to seperate sessions to be on
+#                               seperate screens.  If only 1 session is in use, this option will
+#                               make no differnece.  You can specify between 1+ positions
+

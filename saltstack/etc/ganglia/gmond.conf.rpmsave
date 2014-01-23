@@ -1,0 +1,62 @@
+/* Configuration settings for a pure sFlow receiver */
+/* Delete all udp_send_channel, modules, collection_group and include sections */
+globals {
+daemonize = yes
+setuid = yes
+user = nobody
+debug_level = 0
+#max_udp_msg_len = 1472
+max_udp_msg_len = 2048
+mute = yes /* don't send metrics */ 
+deaf = no /* listen for metrics */
+allow_extra_data = yes
+host_dmax = 0
+host_tmax = 20
+cleanup_threshold = 300
+gexec = no
+send_metadata_interval = 0
+}
+
+cluster {
+name = "gdcloud"
+owner = "admin of cluster"
+latlong = "unspecified"
+url = "http://192.168.31.202:8080/client"
+}
+
+host {
+location = "1,2,3"
+}
+
+/* channel to receive gmetric messages */
+/* eliminate mcast_join - sFlow is a unicast protocol */
+udp_recv_channel {
+port = 8649
+}
+
+/* channel to service requests for XML data from gmetad */
+tcp_accept_channel {
+port = 8649
+}
+
+/* channel to receive sFlow */
+/* 6343 is the default sFlow port, an explicit sFlow */
+/* configuration section is needed to override default */
+
+udp_recv_channel {
+  port = 6343
+}
+
+/* Optional sFlow settings */
+sflow {
+ udp_port = 6343
+ accept_vm_metrics = yes
+ accept_jvm_metrics = yes
+ multiple_jvm_instances = no
+ accept_http_metrics = yes
+ multiple_http_instances = no
+ accept_memcache_metrics = yes
+ multiple_memcache_instances = no
+}
+/* end of configuration file */
+/* Delete all modules, collection_group and include sections */

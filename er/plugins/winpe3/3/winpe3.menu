@@ -1,0 +1,6 @@
+LABEL WPE3
+MENU LABEL ^Windows PE 3.0 - 3
+KERNEL er/2/pxeboot.0
+TEXT HELP
+                 Windows PE 3.0 - WIM.
+ENDTEXT

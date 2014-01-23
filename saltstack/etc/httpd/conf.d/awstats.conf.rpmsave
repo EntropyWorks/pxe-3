@@ -1,0 +1,12 @@
+Alias /awstats/icon/ /var/www/awstats/icon/
+
+ScriptAlias /awstats/ /var/www/awstats/
+<Directory /var/www/awstats/>
+    DirectoryIndex awstats.pl
+    Options ExecCGI
+    order allow,deny
+    allow from all
+</Directory>
+
+#Alias /css/ /var/www/awstats/css/
+#Alias /js/ /var/www/awstats/js/

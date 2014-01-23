@@ -1,0 +1,6 @@
+.:
+filelist.txt
+initrd.gz
+redobackup.menu
+redobackup.png
+vmlinuz

@@ -1,0 +1,50 @@
+LABEL FOG.REG
+MENU LABEL ^Quick Host Registration and Inventory
+KERNEL er/plugins/fog/kernel/bzImage
+INITRD er/plugins/fog/images/init.gz
+APPEND root=/dev/ram0 rw ramdisk_size=127000 ip=dhcp mode=autoreg web=10.0.0.1/fog/ loglevel=4
+TEXT HELP
+				Automatically register the client computer,
+				and perform a hardware inventory.
+ENDTEXT
+
+LABEL FOG.REGINPUT
+MENU LABEL ^Perform Full Host Registration and Inventory
+KERNEL er/plugins/fog/kernel/bzImage
+INITRD er/plugins/fog/images/init.gz
+APPEND root=/dev/ram0 rw ramdisk_size=127000 ip=dhcp mode=manreg web=10.0.0.1/fog/ loglevel=4
+TEXT HELP
+				Perform a full host registration on the client
+				computer, perform a hardware inventory, and 
+				optionally image the host.
+ENDTEXT
+
+LABEL FOG.QUICKIMAGE
+MENU LABEL ^Quick Image
+KERNEL er/plugins/fog/kernel/bzImage
+INITRD er/plugins/fog/images/init.gz
+APPEND root=/dev/ram0 rw ramdisk_size=127000 ip=dhcp mode=quickimage keymap= web=10.0.0.1/fog/ loglevel=4
+TEXT HELP
+				This mode will allow you to image this host quickly with
+				it's default assigned image.
+ENDTEXT	
+
+LABEL FOG.SYSINFO
+MENU LABEL ^Client System Information
+KERNEL er/plugins/fog/kernel/bzImage
+INITRD er/plugins/fog/images/init.gz
+APPEND root=/dev/ram0 rw ramdisk_size=127000 ip=dhcp mode=sysinfo loglevel=4
+TEXT HELP
+				View basic client information such as MAC address 
+				and FOG compatibility.
+ENDTEXT
+
+LABEL FOG.DEBUG
+MENU LABEL ^Debug Mode
+KERNEL er/plugins/fog/kernel/bzImage
+INITRD er/plugins/fog/images/init.gz
+APPEND root=/dev/ram0 rw ramdisk_size=127000 ip=dhcp mode=onlydebug
+TEXT HELP
+				Debug mode will load the boot image and load a prompt so
+				you can run any commands you wish.
+ENDTEXT

@@ -1,0 +1,13 @@
+.:
+filelist.txt
+x86_64
+
+./x86_64:
+casper
+
+./x86_64/casper:
+filesystem.manifest
+filesystem.manifest-desktop
+filesystem.size
+filesystem.squashfs
+README.diskdefines

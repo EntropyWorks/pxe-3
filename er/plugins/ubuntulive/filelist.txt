@@ -1,0 +1,16 @@
+.:
+filelist.txt
+i386
+ubuntu.menu
+ubuntu.png
+x86_64
+
+./i386:
+initrd.lz
+ubuntumain.menu
+vmlinuz
+
+./x86_64:
+initrd.lz
+ubuntumain.menu
+vmlinuz

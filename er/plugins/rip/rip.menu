@@ -1,0 +1,13 @@
+MENU BEGIN RIPLINUX
+MENU LABEL ^RIP Linux 13.5
+# ------====> Include Menu Settings <====------
+MENU INCLUDE er/menuinc/header.module
+
+# ------====> Set Specific Page Settings <====------
+MENU BACKGROUND er/plugins/rip/rip.png
+
+MENU INCLUDE er/plugins/rip/ripmain.menu
+
+# ------====> Back <====------
+MENU INCLUDE er/menu/shared/menu-back.module
+MENU END

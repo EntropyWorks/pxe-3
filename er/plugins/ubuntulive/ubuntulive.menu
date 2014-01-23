@@ -1,0 +1,14 @@
+MENU BEGIN UBUNTULIVE
+MENU LABEL ^Ubuntu Live 12.04
+# ------====> Include Menu Settings <====------
+MENU INCLUDE er/menuinc/header.module
+
+# ------====> Set Specific Page Settings <====------
+MENU BACKGROUND er/plugins/ubuntulive/ubuntulive.png
+
+MENU INCLUDE er/plugins/ubuntulive/i386/ubuntulivemain.menu
+MENU INCLUDE er/plugins/ubuntulive/x86_64/ubuntulivemain.menu
+  
+# ------====> Back <====------
+MENU INCLUDE er/menu/shared/menu-back.module
+MENU END

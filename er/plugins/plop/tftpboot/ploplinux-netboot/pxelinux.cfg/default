@@ -1,0 +1,63 @@
+default vesamenu.c32
+prompt 0
+timeout 100
+
+menu background splash.png
+
+menu title Welcome to Plop Linux
+
+menu color border 	37;40 	#00000000 #00000000 none
+menu color title  	1;37;40	#00000000 #00000000 none
+menu color tabmsg  	40;37	#88888888 #00000000 none
+menu color sel  	1;37;42	#ffffffff #ff808080 none
+menu color unsel  	1;40;32	#ff00ff00 #00000000 none
+
+
+# NFS
+include pxelinux.cfg/nfs.conf
+#include pxelinux.cfg/nfs-iso.conf
+
+# Samba / Windows share
+#include pxelinux.cfg/smb.conf
+#include pxelinux.cfg/smb-iso.conf
+
+# TFTP
+#include pxelinux.cfg/tftp.conf
+#include pxelinux.cfg/tftp-iso.conf
+
+# FTP
+#include pxelinux.cfg/ftp.conf
+#include pxelinux.cfg/ftp-iso.conf
+
+# HTTP
+#include pxelinux.cfg/http.conf
+#include pxelinux.cfg/http-iso.conf
+
+
+menu separator
+
+label hd
+    menu label ^Boot harddisk
+    localboot 0x80
+    append -
+
+menu separator
+
+label plp
+    menu label ^Plop Boot Manager
+    linux syslinux/plop/plpbt.bin
+
+label plpinst
+    menu label Plop Boot Manager installer
+    linux syslinux/plop/plpinstc.com
+
+label plpkexec
+    menu label PlopKexec Boot Manager
+    kernel syslinux/plop/plopkexec
+
+menu separator
+
+label Memtest
+    menu label ^Memtest
+    kernel memtest
+

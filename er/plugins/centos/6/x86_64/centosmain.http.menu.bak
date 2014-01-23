@@ -1,0 +1,17 @@
+LABEL CENTOS6X64HTTP
+MENU LABEL ^CentOS 6 x64 - HTTP
+KERNEL er/plugins/centos/6/x86_64/vmlinuz
+INITRD er/plugins/centos/6/x86_64/initrd.img
+APPEND ramdisk_size=100000 ip=dhcp METHOD=http://10.0.0.1/er/centos/6/x86_64/
+TEXT HELP
+                 Install CentOS x64.
+ENDTEXT
+
+LABEL CentOS6u3-64-ks
+    KERNEL os/linux/centos/6.3/x86_64/images/pxeboot/vmlinuz
+    INITRD os/linux/centos/6.3/x86_64/images/pxeboot/initrd.img
+    APPEND ip=dhcp ks=http://192.168.11.9/pxe/ks/linux/centos/6.3/x86_64/minimal.cfg
+TEXT HELP
+                 http://192.168.11.9/pxe/os/linux/centos/6.2/x86_64/isolinux/
+ENDTEXT
+

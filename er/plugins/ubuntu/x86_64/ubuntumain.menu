@@ -1,0 +1,52 @@
+#prompt 1
+#timeout 60
+default manual-part
+
+label manual-part
+  menu label ^Install Ubuntu Server-Manual
+  menu default
+  kernel http://192.168.31.245/os/linux/ubuntu/10.04.4/x86_64/server/install/netboot/ubuntu-installer/amd64/linux
+  initrd http://192.168.31.245/os/linux/ubuntu/10.04.4/x86_64/server/install/netboot/ubuntu-installer/amd64/initrd.gz
+  append vga=normal preseed/url=http://192.168.11.9/pxe/ks/linux/ubuntu/10.04.4/x86_64/manual-part.seed locale=en_US console-setup/ask_detect=false console-setup/layoutcode=us hostname= domain=
+  TEXT HELP
+	Ubuntu 10.04.4 x86_64 Server Edition ISO
+	manual partition settings
+  ENDTEXT
+
+label minimal-auto
+  menu label ^Install Ubuntu Server-Unattend
+  kernel http://192.168.31.245/os/linux/ubuntu/10.04.4/x86_64/server/install/netboot/ubuntu-installer/amd64/linux
+  initrd http://192.168.31.245/os/linux/ubuntu/10.04.4/x86_64/server/install/netboot/ubuntu-installer/amd64/initrd.gz
+  append vga=normal preseed/url=http://192.168.11.9/pxe/ks/linux/ubuntu/10.04.4/x86_64/minimal-auto.seed locale=en_US console-setup/ask_detect=false console-setup/layoutcode=us hostname= domain=
+  TEXT HELP
+	Ubuntu 10.04.4 x86_64 Server Edition ISO
+	auto install minimal server
+  ENDTEXT
+
+label minimal-xenserver
+  menu label ^Install Ubuntu Lucid VM
+  kernel http://mirrors.yun-idc.com/ubuntu/dists/lucid/main/installer-amd64/current/images/netboot/xen/vmlinuz
+  initrd http://mirrors.yun-idc.com/ubuntu/dists/lucid/main/installer-amd64/current/images/netboot/xen/initrd.gz
+  append vga=normal locale=en_US console-setup/ask_detect=false console-setup/layoutcode=us hostname= domain=
+  TEXT HELP
+  	Install Ubuntu 10.04(Lucid) x86_64 on XenServer
+	Internet download or use a http proxy server
+  ENDTEXT
+
+label minimal-auto-xenserver
+  menu label ^Install Ubuntu Lucid VM
+  kernel http://mirrors.yun-idc.com/ubuntu/dists/lucid/main/installer-amd64/current/images/netboot/xen/vmlinuz
+  initrd http://mirrors.yun-idc.com/ubuntu/dists/lucid/main/installer-amd64/current/images/netboot/xen/initrd.gz
+  append vga=normal preseed/url=http://192.168.11.9/pxe/ks/linux/ubuntu/10.04.4/x86_64/minimal-auto-xs.seed locale=en_US console-setup/ask_detect=false console-setup/layoutcode=us hostname= domain=
+  TEXT HELP
+  	Install Ubuntu 10.04(Lucid) x86_64 on XenServer
+	Internet download or use a http proxy server
+  ENDTEXT
+
+label cli
+  menu label ^Command-line install
+  kernel ubuntu-installer/amd64/linux
+  append tasks=standard pkgsel/language-pack-patterns= pkgsel/install-language-support=false vga=normal initrd=ubuntu-installer/amd64/initrd.gz -- quiet
+label hd
+  menu label ^Boot from first hard disk
+  localboot 0x80

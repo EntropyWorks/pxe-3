@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<installation srtype="ext">
+<primary-disk>sda</primary-disk>
+<keymap>us</keymap>
+<root-password>password</root-password>
+<source type="url">http://192.168.103.103/os/xs60/</source>
+<ntp-server>192.168.103.103</ntp-server>
+<admin-interface name="eth0" proto="dhcp" />
+<timezone>Asia/Shanghai</timezone>
+</installation>

@@ -1,0 +1,8 @@
+LABEL REDOBACKUP
+MENU LABEL ^RedoBackup 1.0.3
+KERNEL er/plugins/redobackup/vmlinuz
+INITRD er/plugins/redobackup/initrd.gz
+APPEND boot=casper netboot=nfs nfsroot=10.0.0.1:/tftpboot/er/shares/redobackup ramdisk_size=200000 nolock
+TEXT HELP
+                 RedoBackup Live.
+ENDTEXT

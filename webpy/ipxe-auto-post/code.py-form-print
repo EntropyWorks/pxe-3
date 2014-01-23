@@ -1,0 +1,21 @@
+#!/usr/bin/python
+import web        
+
+urls = (
+        "/favicon\.ico", "favicon",
+         '/(.*)', 'hello'
+         )
+app = web.application(urls, globals())
+
+class hello:     
+    def POST(self,name):
+        ipxe = web.input()
+        print ipxe.global_ip
+        return 'ok'
+
+class favicon:
+    def GET(self):
+        return 'ok'      
+    
+if __name__ == "__main__":
+    app.run()

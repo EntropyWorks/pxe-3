@@ -1,0 +1,20 @@
+	This is at least a partial credits-file of people that have
+	contributed to the ERPXE project.  It is sorted by name and
+	formatted to allow easy grepping and beautification by
+	scripts.  The fields are: name (N), email (E), web-address
+	(W), description (D), and snail-mail address (S).
+	Thanks,
+
+			ERPXE Team
+			----------
+
+N: Adam Mallul (RaveMaker)
+W: http://ravemaker.net
+D: Co-Founder of ERPXE and maintainer
+S: Israel
+
+N: Etay Cohen-Solal (ET)
+W: http://www.etcs.me
+D: Co-Founder of ERPXE and maintainer
+S: Israel
+

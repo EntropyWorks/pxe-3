@@ -1,0 +1,26 @@
+LABEL BLACKBUNTULIVE64
+MENU LABEL ^BlackBuntu Live x64
+KERNEL er/plugins/blackbuntu/x86_64/vmlinuz
+INITRD er/plugins/blackbuntu/x86_64/initrd.gz
+APPEND file=er/plugins/blackbuntu/x86_64/custom.seed vga=normal boot=casper netboot=nfs nfsroot=10.0.0.1:/tftpboot/er/shares/blackbuntu/x86_64 ramdisk_size=200000 nolock root=/dev/nfs dhcp aufs
+TEXT HELP
+                 BlackBuntu x64 Live.
+ENDTEXT
+
+LABEL BLACKBUNTULIVEINSTALL64
+MENU LABEL ^BlackBuntu x64 Install
+KERNEL er/plugins/blackbuntu/x86_64/vmlinuz
+INITRD er/plugins/blackbuntu/x86_64/initrd.gz
+APPEND file=er/plugins/blackbuntu/x86_64/custom.seed vga=normal boot=casper netboot=nfs nfsroot=10.0.0.1:/tftpboot/er/shares/blackbuntu/x86_64 ramdisk_size=200000 nolock root=/dev/nfs dhcp only-ubiquity aufs
+TEXT HELP
+                 BlackBuntu x64 Install.
+ENDTEXT
+
+LABEL BLACKBUNTULIVE64TEXTONLY64
+MENU LABEL ^BlackBuntu Live x64 textonly mode
+KERNEL er/plugins/blackbuntu/x86_64/vmlinuz
+INITRD er/plugins/blackbuntu/x86_64/initrd.gz
+APPEND file=er/plugins/blackbuntu/x86_64/custom.seed vga=normal boot=casper netboot=nfs nfsroot=10.0.0.1:/tftpboot/er/shares/blackbuntu/x86_64 ramdisk_size=200000 nolock root=/dev/nfs dhcp text aufs
+TEXT HELP
+                 BlackBuntu x64 textonly mode.
+ENDTEXT

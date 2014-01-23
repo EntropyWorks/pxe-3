@@ -1,0 +1,62 @@
+Copyright Acronis, 2000-2012.
+
+All rights reserved.
+Acronis Backup & Recovery 11 Command-Line Tool
+Usage:
+
+acrocmd <command> [OPTIONS]
+
+For more information on a specific command, type 'acrocmd help <command_name>'.
+List of all commands:
+activate asrm
+backup disk
+backup file
+backup vm
+cleanup asz
+clone disk
+consolidate backup
+convert full
+create asz
+deactivate asrm
+delete archive
+delete asz
+delete asz_files
+delete backup
+delete plan
+delete task
+disable plan
+enable plan
+export archive
+export backup
+export plan
+get log
+import plan
+list activities
+list archives
+list backups
+list content
+list disks
+list licenses
+list mounts
+list plans
+list tape_drives
+list tape_libraries
+list tasks
+list vms
+list vmservers
+mount
+recover disk
+recover file
+recover lvm_structure
+recover mbr
+recover vm
+replicate backup
+run task
+stop task
+sysinfo
+umount
+validate archive
+validate backup
+validate vault
+
+The operation completed successfully.

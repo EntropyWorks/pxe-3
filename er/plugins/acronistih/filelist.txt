@@ -1,0 +1,5 @@
+.:
+acronistih.menu
+filelist.txt
+kernel.dat
+ramdisk.dat

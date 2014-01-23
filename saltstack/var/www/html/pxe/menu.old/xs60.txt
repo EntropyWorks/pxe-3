@@ -1,0 +1,11 @@
+label xenserver60-auto
+    kernel xs60/mboot.c32
+    append xs60/xen.gz dom0_mem=752M com1=115200,8n1 console=com1,tty --- xs60/vmlinuz console=ttyS0,115200n8 console=tty0 answerfile=xs60-answers.xml install --- xs60/install.img
+label xenserver60-auto(http)
+    kernel xs60/mboot.c32
+    append xs60/xen.gz dom0_mem=752M com1=115200,8n1 console=com1,tty --- xs60/vmlinuz console=ttyS0,115200n8 console=tty0 answerfile=http://pxe.gdcloud.com/pxe/ks/xs60-ks.xml install --- xs60/install.img
+    
+label install-xenserver
+        kernel xs60/mboot.c32
+        append xs60/xen.gz dom0_max_vcpus=2 dom0_mem=752M com1=115200,8n1 console=com1,vga --- xs60/vmlinuz xencons=hvc console=hvc0 console=tty0 answerfile=http://192.168.103.103/pxe/xs60-answerfile.xml install --- xs60/install.img
+   

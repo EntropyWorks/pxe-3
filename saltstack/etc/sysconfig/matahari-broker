@@ -1,0 +1,18 @@
+# Override the broker port set in /etc/sysconfig/matahari
+#MATAHARI_PORT=49000
+
+QPIDD_OPTIONS="--config /etc/matahari-broker.conf"
+
+# Federated Broker configuration - list the brokers to federate with
+# The following formats are allowed:
+#   Hostname and port
+#     <fqdn>:<port>
+#   DNS SRV query format ("_matahari._tcp" is REQUIRED)
+#     _matahari._tcp.<fqdn>
+#
+# Note that only the first (highest priority) SRV record returned by the DNS
+# for each given query will be used.
+#
+# Addresses need not all be in the same format.
+#FEDERATED_BROKERS="broker1.example.com:49000, _matahari._tcp.example.com"
+

@@ -1,0 +1,16 @@
+[rpmfoge]
+name=rpmforge
+baseurl=http://apt.sw.be/redhat/
+	http://archive.cs.uu.nl/mirror/dag.wieers/redhat/
+	http://ftp2.lcpe.uni-sofia.bg/freshrpms/pub/dag/redhat/
+	http://ftp.heanet.ie/pub/freshrpms/pub/dag/redhat/
+	http://ftp-stud.fht-esslingen.de/dag/redhat/
+	http://mirror.cpsc.ucalgary.ca/mirror/dag/redhat/
+	http://mirrors.ircam.fr/pub/dag/redhat/
+	http://rh-mirror.linux.iastate.edu/pub/dag/redhat/
+	http://rpmfind.net/linux/dag/redhat/
+	http://wftp.tu-chemnitz.de/pub/linux/dag/redhat/
+	http://www.mirrorservice.org/sites/apt.sw.be/redhat/
+failovermethod=priority
+enabled=1
+gpgcheck=0

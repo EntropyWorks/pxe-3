@@ -1,0 +1,24 @@
+# boot from HTTP - ISO
+label PLOPLinux
+menu label PlopLinux-4.2.2-x64-HTTP ISO
+    kernel pxelinux.cfg/roms/memdisk
+    initrd tools/system_rescue/ploplinux-4.2.2-x64.iso
+    append iso
+
+LABEL PLOP64-nfs
+MENU LABEL ^Plop Linux x64-nfs
+KERNEL er/plugins/plop/x86_64/bzimage
+INITRD er/plugins/plop/x86_64/initramfs.gz
+APPEND vga=1 nfsmount=10.0.0.1:/tftpboot/er/shares/plop/x86_64
+TEXT HELP
+                 Plop Linux x64.
+ENDTEXT
+
+LABEL PLOP64FB-nfs
+MENU LABEL ^Plop Linux x64 framebuffer mode-nfs
+KERNEL er/plugins/plop/x86_64/bzimage
+INITRD er/plugins/plop/x86_64/initramfs.gz
+APPEND vga=0x317 nfsmount=10.0.0.1:/tftpboot/er/shares/plop/x86_64
+TEXT HELP
+                 Plop Linux x64 framebuffer mode.
+ENDTEXT

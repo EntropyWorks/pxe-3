@@ -1,0 +1,5 @@
+.:
+avg.menu
+filelist.txt
+initrd.lzm
+vmlinuz

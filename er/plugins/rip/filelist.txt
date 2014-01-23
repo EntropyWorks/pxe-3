@@ -1,0 +1,8 @@
+filelist.txt
+kernel32
+kernel64
+ripmain.menu
+rip.menu
+rip.png
+rootfs.cgz
+rootfsnx.cgz

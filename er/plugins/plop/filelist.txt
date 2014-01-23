@@ -1,0 +1,16 @@
+.:
+filelist.txt
+i386
+plop.menu
+plop.png
+x86_64
+
+./i386:
+bzimage
+initramfs.gz
+plopmain.menu
+
+./x86_64:
+bzimage
+initramfs.gz
+plopmain.menu

@@ -1,0 +1,9 @@
+.:
+casper
+filelist.txt
+
+./casper:
+filesystem.manifest
+filesystem.manifest-desktop
+filesystem.size
+filesystem.squashfs

@@ -1,0 +1,19 @@
+LABEL PING-ISO
+MENU LABEL ^PING (Partimage Is Not Ghost) 3.0.2-ISO
+KERNEL pxelinux.cfg/roms/memdisk
+INITRD http://192.168.31.245/isos/tools/PING-3.02.iso
+APPEND iso
+TEXT HELP
+                 PING - Partimage is not Ghost.
+                 Deploy And Backup Disk/Partition Images.
+ENDTEXT
+
+LABEL PING
+MENU LABEL ^PING (Partimage Is Not Ghost) 3.0.2-Samba
+KERNEL er/plugins/ping/kernel
+INITRD er/plugins/ping/initrd.gz
+APPEND vga=normal devfs=nomount pxe ramdisk_size=55000 load_ramdisk=1 init=/linuxrc prompt_ramdisk=0 root=/dev/ram0 rw noapic nolapic combined_mode=libata ide0=noprobe nomce pci=nomsi irqpoll quiet noacpi noapm pci=noacpi lba acpi=off apm=off Server=10.0.0.1 Share=partimage User=erpxe\erpxe Passwd=erpxe Replace_BIOS=N CIFS_Preferred=Y No_Shell=Y Directory=/
+TEXT HELP
+                 PING - Partimage is not Ghost.
+                 Deploy And Backup Disk/Partition Images.
+ENDTEXT

@@ -1,0 +1,12 @@
+$def with (release,arch,ks)
+$ kernel = "install/netboot/ubuntu-installer/amd64/linux"
+$ initrd = "install/netboot/ubuntu-installer/amd64/initrd.gz"
+
+MENU LABEL Ubuntu Server $release $arch $ks
+MENU DEFAULT
+KERNEL ubuntu/$release/$arch/install/netboot/ubuntu-installer/amd64/linux
+INITRD ubuntu/$release/$arch/install/netboot/ubuntu-installer/amd64/initrd.gz
+APPEND vga=normal preseed/url=http://$config.server/$config.ks_path/ubuntu/$release/$arch/$ks locale=en_US console-setup/ask_detect=false console-setup/layoutcode=us hostname= domain=
+  TEXT HELP
+	Ubuntu Server $release $arch $ks
+  ENDTEXT

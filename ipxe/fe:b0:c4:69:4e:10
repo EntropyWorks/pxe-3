@@ -1,0 +1,19 @@
+#!ipxe
+# load vmlinuz and initrd
+set mirror http://192.168.11.9
+set dir pxe/os
+set distro linux
+set os centos
+set arch x86_64
+set edition server
+set ksfile ks.cfg
+
+set ksurl ${mirror}/${dir}/${distro}/${os}/${arch}/${edition}
+set osks ${ksurl}/${ksfile}
+set repo repo=${ksurl}
+#set params ksdevice=bootif ks=${osks} ${params}
+
+kernel ${ksurl}/isolinux/vmlinuz
+initrd ${ksurl}/isolinux/initrd.img
+imgargs vmlinuz ${repo} ${params}
+boot vmlinuz

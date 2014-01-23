@@ -1,0 +1,17 @@
+LABEL THINSTATIONK
+MENU LABEL ^ThinStation - FireFox Kiosk
+KERNEL er/plugins/thinstation/kiosk/vmlinuz
+INITRD er/plugins/thinstation/kiosk/initrd
+APPEND load_ramdisk=1 ramdisk_blocksize=4096 root=/dev/ram0 ramdisk_size=524288 console=ttyS3 vga=791 union=aufs
+TEXT HELP
+                 Precompiled With all NICs and WNICs.
+ENDTEXT
+
+LABEL THINSTATIONR
+MENU LABEL ^ThinStation - Remote Client
+KERNEL er/plugins/thinstation/remote/vmlinuz
+INITRD er/plugins/thinstation/remote/initrd
+APPEND load_ramdisk=1 ramdisk_blocksize=4096 root=/dev/ram0 ramdisk_size=524288 console=ttyS3 vga=791 union=aufs
+TEXT HELP
+                 Precompiled With all NICs and WNICs.
+ENDTEXT

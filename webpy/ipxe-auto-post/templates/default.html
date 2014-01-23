@@ -1,0 +1,9 @@
+$ proto = "http://"
+$ dir = "pxe/"
+$ pxelinux = "pxelinux.0"
+
+#!gpxe
+set 209:string pxelinux.cfg/default
+set 210:string $proto$config.server/$dir
+chain ${210:string}$pxelinux
+boot

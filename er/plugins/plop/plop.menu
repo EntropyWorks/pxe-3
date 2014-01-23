@@ -1,0 +1,14 @@
+MENU BEGIN PLOPLINUX
+MENU LABEL ^Plop Linux 4.1.2
+# ------====> Include Menu Settings <====------
+MENU INCLUDE er/menuinc/header.module
+
+# ------====> Set Specific Page Settings <====------
+MENU BACKGROUND er/plugins/plop/plop.png
+
+MENU INCLUDE er/plugins/plop/i386/plopmain.menu
+MENU INCLUDE er/plugins/plop/x86_64/plopmain.menu
+
+# ------====> Back <====------
+MENU INCLUDE er/menu/shared/menu-back.module
+MENU END

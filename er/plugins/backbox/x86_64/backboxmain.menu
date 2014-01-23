@@ -1,0 +1,44 @@
+LABEL BACKBOXLIVE64
+MENU LABEL ^BackBox x64
+KERNEL er/plugins/backbox/x86_64/vmlinuz
+INITRD er/plugins/backbox/x86_64/initrd.gz
+APPEND file=er/plugins/backbox/x86_64/backbox.seed boot=casper vga=791 netboot=nfs nfsroot=10.0.0.1:/tftpboot/er/shares/backbox/x86_64 ramdisk_size=200000 nolock vga=791 aufs --
+TEXT HELP
+                 BackBox Live x64.
+ENDTEXT
+
+LABEL BACKBOXLIVEFORENSICS64
+MENU LABEL ^BackBox x64 - Forensic Mode
+KERNEL er/plugins/backbox/x86_64/vmlinuz
+INITRD er/plugins/backbox/x86_64/initrd_forensic.gz
+APPEND file=er/plugins/backbox/x86_64/backbox.seed boot=casper locale=en_US bootkbd=us console-setup/layoutcode=us vga=791 netboot=nfs nfsroot=10.0.0.1:/tftpboot/er/shares/backbox/x86_64 ramdisk_size=200000 nolock vga=791 aufs --
+TEXT HELP
+                 BackBox x64 - Forensic Mode.
+ENDTEXT
+
+LABEL BACKBOXPERSISTENT64
+MENU LABEL ^BackBox x64 - Persistent Mode
+KERNEL er/plugins/backbox/x86_64/vmlinuz
+INITRD er/plugins/backbox/x86_64/initrd.gz
+APPEND file=er/plugins/backbox/x86_64/backbox.seed boot=casper persistent locale=en_US bootkbd=us console-setup/layoutcode=us vga=791 netboot=nfs nfsroot=10.0.0.1:/tftpboot/er/shares/backbox/x86_64 ramdisk_size=200000 nolock vga=791 aufs --
+TEXT HELP
+                 BackBox x64 - Persistent Mode.
+ENDTEXT
+
+LABEL BACKBOXTEXT64
+MENU LABEL ^BackBox x64 - Text Mode
+KERNEL er/plugins/backbox/x86_64/vmlinuz
+INITRD er/plugins/backbox/x86_64/initrd.gz
+APPEND file=er/plugins/backbox/x86_64/backbox.seed boot=casper text vga=791 netboot=nfs nfsroot=10.0.0.1:/tftpboot/er/shares/backbox/x86_64 ramdisk_size=200000 nolock vga=791 aufs --
+TEXT HELP
+                 BackBox x64 - Text Mode.
+ENDTEXT
+
+LABEL BACKBOXXFORCEVESA64
+MENU LABEL ^BackBox x64 - Compatibility Mode
+KERNEL er/plugins/backbox/x86_64/vmlinuz
+INITRD er/plugins/backbox/x86_64/initrd.gz
+APPEND file=er/plugins/backbox/x86_64/backbox.seed boot=casper xforcevesa ramdisk_size=1048576 root=/dev/ram rw noapic noapci nosplash irqpoll netboot=nfs nfsroot=10.0.0.1:/tftpboot/er/shares/backbox/x86_64 ramdisk_size=200000 nolock vga=791 aufs --
+TEXT HELP
+                 BackBox x64 - Compatibility Mode.
+ENDTEXT

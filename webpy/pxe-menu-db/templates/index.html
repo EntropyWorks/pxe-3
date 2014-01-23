@@ -1,0 +1,10 @@
+$def with (menus)
+<ul>
+$for os in menus:
+  <li id="t$os.distro">$os.distro-$os.releasever-$os.basearch</li>
+    <ul>
+      <li>KERNEL </li>
+      <li>INITRD </li>
+      <li>APPEND </li>
+    </ul>
+</ul>

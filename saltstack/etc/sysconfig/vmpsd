@@ -1,0 +1,1 @@
+OPTIONS="-f /etc/vmps.db -l 0x700"

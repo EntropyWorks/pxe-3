@@ -1,0 +1,46 @@
+# CentOS-Base.repo
+#
+# The mirror system uses the connecting IP address of the client and the
+# update status of each mirror to pick mirrors that are updated to and
+# geographically close to the client.  You should use this for CentOS updates
+# unless you are manually picking other mirrors.
+#
+# If the mirrorlist= does not work for you, as a fall back you can try the 
+# remarked out baseurl= line instead.
+#
+#
+
+[base]
+name=CentOS-6 - Base
+baseurl=http://mirrors.sohu.com/centos/6/os/$basearch/
+	http://mirrors.163.com/centos/6/os/$basearch/
+	http://mirrors.yun-idc.com/centos/6/os/$basearch/
+	http://mirrors.tuna.tsinghua.edu.cn/centos/6/os/$basearch/
+	http://mirror.bjtu.edu.cn/centos/6/os/$basearch/
+	http://mirrors.jstvu.edu.cn/centos/6/os/$basearch/
+	http://mirrors.stuhome.net/centos/6/os/$basearch/
+	http://mirrors.neusoft.edu.cn/centos/6/os/$basearch/
+	http://mirror.tju.edu.cn/centos/6/os/$basearch/
+	http://run.hit.edu.cn/centos/6/os/$basearch/
+	http://linux.xidian.edu.cn/centos/6/os/$basearch/
+	http://mirror.lzu.edu.cn/centos/6/os/$basearch/
+	http://mirrors.xmu.edu.cn/centos/6/os/$basearch/
+	http://mirror.neu.edu.cn/centos/6/os/$basearch/
+	http://mirror.dlut.edu.cn/centos/6/os/$basearch/
+	http://ftp.stju.edu.cn/centos/6/os/$basearch/
+	http://mirrors.ustc.edu.cn/centos/6/os/$basearch/
+	http://mirrors.sdutlinux.org/centos/6/os/$basearch/
+	http://mirror.bit.edu.cn/centos/6/os/$basearch/
+	http://mirrors.oss.org.cn/centos/6/os/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+enabled=1
+
+[updates]
+name=CentOS-6 - Updates
+baseurl=http://mirrors.sohu.com/centos/6/updates/$basearch/
+	http://mirrors.163.com/centos/6/os/$basearch/
+	http://mirrors.yun-idc.com/centos/6/os/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+enabled=1

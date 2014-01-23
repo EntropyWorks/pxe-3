@@ -1,0 +1,18 @@
+LABEL XenServer-6.0.2
+MENU LABEL XenServer-6.0.2
+KERNEL http://10.24.4.4/os/xs-6.0.2/boot/pxelinux/mboot.c32
+APPEND http://10.24.4.4/os/xs-6.0.2/boot/xen.gz dom0_mem=752M com1=115200,8n1 console=com1,tty --- http://10.24.4.4/os/xs-6.0.2/boot/vmlinuz console=ttyS0,115200n8 console=tty0 install --- http://10.24.4.4/os/xs-6.0.2/install.img
+TEXT HELP
+                 Install Citrix XenServer 6.0.201
+		 Default Root Partion size is 100GB	
+ENDTEXT
+
+LABEL XenServer-6.0.2-unattend
+MENU LABEL XenServer-6.0.2-autoinstall
+KERNEL http://10.24.4.4/os/xs-6.0.2/boot/pxelinux/mboot.c32
+APPEND http://10.24.4.4/os/xs-6.0.2/boot/xen.gz dom0_mem=752M com1=115200,8n1 console=com1,tty --- http://10.24.4.4/os/xs-6.0.2/boot/vmlinuz console=ttyS0,115200n8 console=tty0 install answerfile_device=eth0 answerfile=http://10.24.4.84/pxe/ks/linux/xenserver/6.0.2/unattend.xml --- http://10.24.4.4/os/xs-6.0.2/install.img 
+TEXT HELP
+                 answerfile=unattend.xml
+                 answerfile_device=eth0
+		 root_size=100GB	
+ENDTEXT
